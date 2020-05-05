@@ -1,0 +1,37 @@
+<div class='search-results'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-lg-2'></div>
+			<div class='col-lg-4'>
+				<h2>Termos sugeridos</h2>
+				{% if options %}
+					<ul class="result-list">
+						{% for data in options %}
+							<li>
+								<a href='{{data.link}}' title='{{data.titulo}}'>{{data.titulo}}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p class='empty-message'>Nenhum resultado encontrado</p>
+				{% endif %}
+			</div>
+			<div class='col-lg-4'>
+        {% if medicos %}
+        <h2>Outros resultados</h2>
+        <div class='medico-card-slick slick'>
+          {% for medico in medicos %}
+            {% include 'components/medicos-busca-item.twig' %}
+          {% endfor %}
+        </div>
+				{% else %}
+					{# <p class='empty-message'>Nenhum resultado encontrado</p> #}
+				{% endif %}
+        <footer>
+          <a href='{{base_url()}}/medicos/busca?tipo_busca=BASICA&termo={{term}}&urgencia=1'
+            class='btn btn-outline-primary btn-outline'>Busca Avançada</a>
+        </footer>
+      </div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,116 @@
+{% extends 'layout/wrapper.twig' %}
+
+{% set page_title =  'Área Restrita Unimed do Brasil' %}
+
+{% set breadlinks = [
+    { titulo: 'Serviços Online', url: '/servicos-online/area-restrita' },
+    { titulo: page_title, url: '/servicos-online/area-restrita' },
+] %}
+
+{% block content %}
+
+	{% include 'layout/breadcrumb.twig' %}
+
+	<div class='container user-web-creation'>
+		<div class='row'>
+			<div class='col-lg-3'></div>
+			<div class='col-lg-6'>
+				<h1>{{page_title}}</h1>
+				<div class='block-links'>
+					<ul>
+						<li>
+							<a target='_blank' href='{{config.LINK_PORTAL_COOPERADO}}' title='Portal do Cooperado'>
+								<div>
+									<i class='icon-user'>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="34.474" height="34.474" viewbox="0 0 34.474 34.474">
+											<g transform="translate(0 0)"><path class="a" d="M26,93.737a8.619,8.619,0,1,0-8.619-8.619A8.644,8.644,0,0,0,26,93.737Zm0,4.309c-5.818,0-17.237,2.8-17.237,8.619v4.309H43.233v-4.309C43.233,100.847,31.813,98.046,26,98.046Z" transform="translate(-8.759 -76.5)"/></g>
+										</svg>
+									</i>
+									<span>Portal do Cooperado</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a target='_blank' href='{{config.LINK_PORTAL_CLIENTE}}' title='Portal do Cliente'>
+								<div>
+									<i class='icon-user'>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="34.203" height="34.203" viewbox="0 0 34.203 34.203">
+											<defs>
+												<style>
+													.a1238178123718 {
+														fill: none;
+														stroke: #333;
+														stroke-width: 2.5px;
+													}
+												</style>
+											</defs>
+											<g transform="translate(1.25 1.25)">
+												<g transform="translate(0 0)"><path class="a1238178123718" d="M24.61,92.351a7.926,7.926,0,1,0-7.926-7.926A7.949,7.949,0,0,0,24.61,92.351Zm0,3.963c-5.35,0-15.851,2.576-15.851,7.926V108.2h31.7V104.24C40.461,98.89,29.96,96.314,24.61,96.314Z" transform="translate(-8.759 -76.5)"/></g>
+											</g>
+										</svg>
+									</i>
+									<span>Portal do Cliente</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a target='_blank' href='{{config.LINK_PORTAL_RM_COLABORADO}}' title='Contratante de plano de saúde familiar'>
+								<div>
+									<i class='icon-user'>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="43" height="35.41" viewbox="0 0 43 35.41">
+											<g id="office-briefcase" transform="translate(0 -32.368)">
+												<path id="Caminho_236" data-name="Caminho 236" d="M39.644,37.459H30.579V35.837a3.473,3.473,0,0,0-3.469-3.469H15.89a3.473,3.473,0,0,0-3.469,3.469v1.622H3.357A3.36,3.36,0,0,0,0,40.815V64.421a3.36,3.36,0,0,0,3.357,3.356H39.643A3.36,3.36,0,0,0,43,64.421V40.815A3.36,3.36,0,0,0,39.644,37.459ZM15.353,35.837a.538.538,0,0,1,.538-.538H27.11a.538.538,0,0,1,.538.538v1.622H15.353Zm-12,4.553H39.644a.426.426,0,0,1,.425.425v7.691c-4.542,1.685-11.393,2.68-18.581,2.68-7.172,0-14.014-.992-18.556-2.671v-7.7A.426.426,0,0,1,3.357,40.39ZM39.644,64.846H3.357a.426.426,0,0,1-.425-.425v-12.8a58.256,58.256,0,0,0,15.58,2.444c0,.017,0,.033,0,.051v.646a2.2,2.2,0,0,0,2.2,2.2h1.586a2.2,2.2,0,0,0,2.2-2.2v-.646c0-.017,0-.034,0-.051a58.16,58.16,0,0,0,15.581-2.451V64.421A.426.426,0,0,1,39.644,64.846Z" transform="translate(0)" fill="#333"/>
+											</g>
+										</svg>
+
+									</i>
+									<span>Portal RM/Colaborador</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a target='_blank' href='{{config.LINK_PORTAL_AUTORIZACOES}}' title='Portal de Autorizações'>
+								<div>
+									<i class='icon-user'>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="33.862" height="40.881" viewbox="0 0 33.862 40.881">
+											<path id="security-on_1_" data-name="security-on (1)" d="M63.643,6.387C56.667,6.387,51.323,4.394,46.8,0c-4.519,4.394-9.862,6.387-16.838,6.387,0,11.444-2.368,27.836,16.837,34.494C66.01,34.224,63.643,17.831,63.643,6.387ZM45.409,26.525,39.8,20.914,42.311,18.4l3.1,3.1L51.3,15.613l2.512,2.512Z" transform="translate(-29.873)" fill="#333"/>
+										</svg>
+
+
+									</i>
+									<span>Portal de Autorizações</span>
+								</div>
+							</a>
+						</li>
+						<li class='restrict'>
+							<a target='_blank' href='{{config.LINK_AREA_RESTRITA_UNIMED_BRASIL}}' title='Área Restrita Unimed Brasil'>
+								<div>
+									<i class='icon-user'>
+
+										<svg xmlns="http://www.w3.org/2000/svg" width="18.219" height="24.292" viewbox="0 0 18.219 24.292">
+											<g id="lock" transform="translate(-64)">
+												<g id="Grupo_828" data-name="Grupo 828" transform="translate(64)">
+													<g id="Grupo_827" data-name="Grupo 827" transform="translate(0)">
+														<path id="Caminho_3463" data-name="Caminho 3463" d="M214.161,280.985l-.319,2.871a.506.506,0,0,0,.5.562h2.024a.506.506,0,0,0,.5-.562l-.319-2.871a2,2,0,0,0,.828-1.628,2.024,2.024,0,1,0-4.049,0A2,2,0,0,0,214.161,280.985Zm1.2-2.64a1.009,1.009,0,0,1,.437,1.92.506.506,0,0,0-.283.512l.293,2.63h-.894l.293-2.63a.506.506,0,0,0-.283-.512,1.009,1.009,0,0,1,.437-1.92Z" transform="translate(-206.248 -264.175)" fill="#333"/>
+														<path id="Caminho_3464" data-name="Caminho 3464" d="M81.713,9.109H80.195V7.085a7.085,7.085,0,0,0-14.17,0V9.109H64.506A.506.506,0,0,0,64,9.616V22.268a2.026,2.026,0,0,0,2.024,2.024h14.17a2.026,2.026,0,0,0,2.024-2.024V9.616A.506.506,0,0,0,81.713,9.109ZM67.036,7.085a6.073,6.073,0,0,1,12.146,0V9.109H78.17V7.085a5.061,5.061,0,0,0-10.122,0V9.109H67.036Zm10.122,0V9.109h-8.1V7.085a4.049,4.049,0,1,1,8.1,0Zm4.049,15.182a1.013,1.013,0,0,1-1.012,1.012H66.024a1.013,1.013,0,0,1-1.012-1.012V10.122H81.207Z" transform="translate(-64)" fill="#333"/>
+													</g>
+												</g>
+											</g>
+										</svg>
+
+
+									</i>
+									<span>{{page_title}}</span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+<svg id="add-user-button" xmlns="http://www.w3.org/2000/svg" width="14.512" height="14.513" viewBox="0 0 14.512 14.513">
+  <g id="person-add" transform="translate(0 0)">
+    <path id="Caminho_123" data-name="Caminho 123" d="M16.015,83.756a3.628,3.628,0,1,0-3.628-3.628A3.639,3.639,0,0,0,16.015,83.756Zm0,1.814c-2.449,0-7.256,1.179-7.256,3.628v1.814H23.271V89.2C23.271,86.749,18.464,85.57,16.015,85.57Z" transform="translate(-8.759 -76.5)" fill="#333"/>
+  </g>
+</svg>

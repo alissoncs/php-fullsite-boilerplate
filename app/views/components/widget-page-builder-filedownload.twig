@@ -1,0 +1,26 @@
+{% set url = options.url %}
+{% if options.arquivo %}
+    {% set url = base_url() ~ '/upload/downloads/' ~ options.arquivo %}
+{% endif %}
+
+{% set btn_icon = 'noicon' %}
+{% if options.btn_icon %}
+{% set btn_icon = options.btn_icon %}
+{% endif %}
+
+{% if options.titulo %}
+    <h4 class=''>{{options.titulo}}</h4>
+{% endif %}
+
+<div class='button-wrapper'>
+    <a class='btn btn-outline-primary' href='{{url}}' title='Clique para acessar {{options.arquivo}}' {% if options.arquivo %}download='{{options.arquivo}}'{% endif %}>
+    <i class='icon-btn-{{btn_icon}}'></i>
+    <span>
+    {% if options.btn_label %}
+        {{ options.btn_label }}
+    {% else %}
+        Baixar Arquivo
+    {% endif %}
+    </span>
+    </a>
+</div>

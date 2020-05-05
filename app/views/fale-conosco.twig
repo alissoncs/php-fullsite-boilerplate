@@ -1,0 +1,147 @@
+{% set page_title = 'Fale conosco' %}
+{% extends 'layout/wrapper.twig' %}
+{% set breadlinks = [
+    { titulo: 'Fale Conosco', url: '/fale-conosco' },
+] %}
+
+{% block content %}
+	{% include 'layout/breadcrumb.twig' %}
+	<div class='fale-conosco single-page'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-lg-10'>
+					<header class='single-page-header'>
+						<h1 class='title'>Como podemos te ajudar?</h1>
+						<div class='description'>
+							A Unimed Vale do Sinos conta com diversas opçōes para facilitar a comunicaçāo entre você e a Cooperativa. Confira nossos canais e entre em contato com a gente.
+						</div>
+					</header>
+					<div class='content'>
+						<h3 class='h5'>Selecione o assunto do seu interesse:</h3>
+						{% set links = [
+              { title: 'Atendimento Particular',
+                url: '/fale-conosco/atendimento-particular',
+              icon: 'first-aid-kit.svg' },
+              { title: 'Denúncias',
+              icon: 'siren.svg',
+              config_to: 'EMAIL_FORM_DENUNCIAS' },
+              { title: 'Dê uma ideia',
+              url: 'https://ideias.vs.unimed.com.br/',
+              icon: 'idea.svg' },
+              { title: 'Dúvidas',
+              icon: 'question-mark.svg' ,
+              config_to: 'EMAIL_FORM_DUVIDAS'},
+              { title: 'Elogios',
+              icon: 'heart.svg'  ,
+              config_to: 'EMAIL_FORM_ELOGIOS'},
+              { title: 'Medicina e Segurança do Trabalho',
+              icon: 'medical-history.svg' ,
+              config_to: 'EMAIL_FORM_MEDICINA_SEGURANCA_TRABALHO' },
+              { title: 'Ouvidoria',
+                url: '/fale-conosco/ouvidoria',
+              icon: 'customer-service.svg' },
+              { title: 'Quero ser cliente',
+              icon: 'user-outline-dark.svg',  
+              config_to: 'EMAIL_FORM_QUERO_SER_CLIENTE',
+              limit: true },
+              { title: 'Quero ser colaborador',
+              url: '/quero-ser-colaborador',
+              icon: 'submit-resume.svg' },
+              { title: 'Quero ser médico cooperado',
+                url: '/fale-conosco/medico-cooperado',
+              icon: 'doctor.svg' },
+
+              { title: 'Relacionamento empresarial',
+              icon: 'company-support.svg'  ,
+              config_to: 'EMAIL_FORM_RELACIONAMENTO_EMPRESARIAL'},
+              { title: 'Reclamações',
+              icon: 'warning.svg'  ,
+              config_to: 'EMAIL_FORM_RECLAMACOES'},
+              { title: 'Sugestōes',
+              icon: 'suggestions.svg'  ,
+              config_to: 'EMAIL_FORM_SUGESTOES'},
+              { title: 'Solicitações',
+              icon: 'suggestions.svg' ,
+              config_to: 'EMAIL_FORM_SOLICITACOES' },
+              { title: 'Orientação Farmacêutica',
+                url: '/fale-conosco/orientacao-farmaceutica',
+              icon: 'suggestions.svg' },
+              { title: 'Visita Institucional',
+                url: '/fale-conosco/visita-institucional',
+              icon: 'doctor.svg' },
+              ] %}
+
+						<div>
+							<ul class='group-links'>
+								{% for link in links %}
+									{% set url = base_url() ~ link.url %}
+									{% if is_absolute_url(link.url) %}
+										{% set url = link.url %}
+									{% endif %}
+									<li>
+										<a class='iconed-link color-white' data-config-to='{{link.config_to}}' {% if link.url %} href="{{url}}" {% if is_absolute_url(link.url) %} target='_blank' {% endif %} {% endif %}>
+											<span class='icon {% if link.limit %}fix-size{% endif %}'>
+												<img src='{{base_url()}}/build/images/{{link.icon}}' alt='{{link.title}}'/>
+											</span>
+											<strong>{{link.title|raw}}</strong>
+										</a>
+									</li>
+								{% endfor %}
+							</ul>
+							<div class='form-element'>
+								<button class='close' title='Fechar formulário'>
+									<span>&times;</span>
+								</button>
+								<form novalidate='true' autocomplete='off' spellcheck='false' action='{{base_url()}}/fale-conosco/submit' method='get' autocomplete='off'>
+
+									<div class='row'>
+										<div class='col-12 col-lg-12'>
+											<div class='form-element-title'>
+												<span class='icon {% if link.limit %}fix-size{% endif %}'>
+													<img v-bind:src="'{{base_url()}}/build/images/' + icon" alt='{{link.title}}'/>
+												</span>
+												<h2 class='h3'>${title}</h2>
+											</div>
+										</div>
+										<div class='col-12 col-lg-6'>
+											<div class='form-group'>
+												<input type='hidden' name='config_to' value=''/>
+												<input type='hidden' name='assunto' value=''/>
+												<input class='form-control' name='nome' placeholder='Seu nome' required type='text'/>
+											</div>
+											<div class='form-group'>
+												<input class='form-control' name='email' placeholder='Seu e-mail' required type='email'/>
+											</div>
+											<div class='form-group'>
+												<input class='form-control mask-tel' name='telefone' placeholder='Seu telefone' required type='tel'/>
+											</div>
+										</div>
+										<div class='col-12 col-lg-6'>
+											<div class='form-group'>
+												<textarea class='form-control' name='mensagem' placeholder='Mensagem' required></textarea>
+											</div>
+											<div class='form-submit'>
+												<button class='btn btn-block btn-primary' data-loading='Enviando...' type='submit'>Enviar mensagem</button>
+											</div>
+											<div class='success-message'>
+												Sua mensagem foi enviada! Logo faremos contato com você!
+											</div>
+											<div class='error-message'>
+												Falha ao enviar sua mensagem
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</form>
+						</div>
+						{% include 'components/fale-conosco-footer.twig' %}
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

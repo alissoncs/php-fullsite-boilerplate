@@ -1,0 +1,40 @@
+<div class='main-header-float-grave d-block d-lg-none'></div>
+<header class='main-header-float'>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-4 col-sm-3 col-lg-2'>
+                <div class='logo'>
+                    <a href='{{base_url()}}' class='logo-link'>
+                        <img src='{{base_url()}}/build/images/logo_UNIMED.svg' title='Unimed. Ir para a home' alt='Unimed'/>
+                    </a>
+                </div>
+            </div>
+
+            <div class='col-8 col-sm-9 col-lg-10'>
+                <div class='topbar-mobile'>
+                    {% include 'layout/phone-line-group.twig' %}
+
+                    <p class='talk-us d-none d-lg-block'>
+                        <a href='{{ base_url() }}/fale-conosco' title='Fale com a Unimed'>Fale com a Unimed</a>
+                    </p>
+
+                    <div class='options-group'>
+                        <div class='d-none d-lg-block'>
+                            {% include 'layout/search-slim.twig' %}
+                        </div>
+                        <div class='d-none d-lg-block'>
+                            <p class='join-link'>
+                                <a href='{{ mount_url(config.ERP_LOGIN_URL) }}' title='Área Restrita' class='btn btn-outline-primary'>
+                                  Área Restrita
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class='d-block d-lg-none'>
+                        <button class='menu-toggle' type='button' title='Abrir menu' aria-label='Abrir menu'>Menu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,89 @@
+{% set page_title = 'Fale conosco' %}
+{% extends 'layout/wrapper.twig' %}
+{% set breadlinks = [
+    { titulo: 'Fale Conosco', url: '/fale-conosco' },
+    { titulo: 'Quero ser médico cooperado', url: '/fale-conosco/medico-cooperado' },
+] %}
+
+{# "Quero ser médico cooperado: criar form específico que envia para e-mail definido nas conf. do CMS
+Campos: Nome, Email, Fone, CRM, Especialidade, Cidade de Atuaçao e Mensagem." #}
+
+{% block content %}
+	{% include 'layout/breadcrumb.twig' %}
+
+	<div class='fale-conosco single-page'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-lg-10'>
+					<header class='single-page-header'>
+						<h1 class='title'>Quero ser médico cooperado</h1>
+						<div class='description'>
+						</div>
+					</header>
+					<div class='content'>
+						<div class='form-element visible'>
+
+							<form class='' novalidate='true' autocomplete='off' spellcheck='false' action='{{base_url()}}/fale-conosco/medico-cooperado/submit' method='post' autocomplete='off'>
+
+								<div class='row'>
+									<div class='col-12 col-lg-12'>
+										<div class='form-element-title'>
+											<h2 class='h3'>Formulário</h2>
+										</div>
+									</div>
+									<div class='col-12 col-lg-6'>
+										<div class='form-group'>
+											<input type='hidden' name='assunto' value='medico_cooperado'/>
+											<label>Nome</label>
+											<input class='form-control' name='nome' placeholder='Seu nome' required type='text'/>
+										</div>
+										<div class='form-group'>
+											<label>CRM</label>
+											<input class='form-control' name='crm' placeholder='CRM' required type='text'/>
+										</div>
+										<div class='form-group'>
+											<label>E-mail</label>
+											<input class='form-control' name='email' placeholder='Seu e-mail' required type='email'/>
+										</div>
+										<div class='form-group'>
+											<label>Telefone</label>
+											<input class='form-control mask-tel' name='telefone' placeholder='Seu telefone' required type='tel'/>
+										</div>
+										<div class='form-group'>
+											<label>Cidade</label>
+											<input class='form-control' name='cidade' placeholder='Sua cidade' required type='text'/>
+										</div>
+                    <div class='form-group'>
+											<label>Especialidade</label>
+											<input class='form-control' name='especialidade' placeholder='Sua especialidade' required type='text'/>
+										</div>
+									</div>
+									<div class='col-12 col-lg-6'>
+
+										<div class='form-group'>
+											<label>Mensagem</label>
+											<textarea class='form-control' name='mensagem' placeholder='Mensagem' required></textarea>
+										</div>
+										<div class='form-submit'>
+											<button class='btn btn-block btn-primary' data-loading='Enviando...' type='submit'>Enviar mensagem</button>
+										</div>
+										<div class='success-message'>
+											Sua mensagem foi enviada! Logo faremos contato com você!
+										</div>
+										<div class='error-message'>
+											Falha ao enviar sua mensagem
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</form>
+					</div>
+
+          {% include 'components/fale-conosco-footer.twig' %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

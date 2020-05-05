@@ -1,0 +1,61 @@
+{% set limit_items = 6 %}
+
+<section class='footer-sitemap'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-12 col-md-3 col-lg-2'>
+				<p class='logo'>
+					<img src='{{base_url()}}/build/images/logo_UNIMED.svg' title='Unimed. Ir para a home' alt='Unimed'/>
+				</p>
+			</div>
+			<div class='col-12 col-md-9 col-lg-10'>
+				<div class='block-menu-group'>
+					{% if menu_blog_categorias and menu_blog_categorias is not empty and 1==2  %}
+						<div class='block-menu'>
+							<h3 title='Blog Viver Bem'>Viver Bem</h3>
+							<ul>
+								{% for i in menu_blog_categorias %}
+									<li {% if loop.index > limit_items %}class='hide'{% endif %}>
+										<a href='{{base_url()}}/blog/{{i.slug}}'>{{i.titulo}}</a>
+									</li>
+                  {% if loop.index == limit_items %}
+										<li class='more'>
+											<a href='' class='load-more'>Ver mais</a>
+										</li>
+                    {% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% if menu_footer %}
+						{% for i in menu_footer %}
+
+            {% set titulo = i.titulo %}
+            {% if titulo|trim == 'Sobre' %}
+              {% set titulo = 'A Unimed' %}
+            {% endif %}
+
+							<div class='block-menu'>
+								<h3 title='{{titulo}}'>
+									<a href='{{base_url()}}/{{i.slug}}'>{{titulo|trim}}</a>
+								</h3>
+								<ul>
+									{% for c in i.childs %}
+										<li {% if loop.index > limit_items %}class='hide'{% endif %}>
+											<a title='{{c.titulo}}' href='{{base_url()}}/{{i.slug}}/{{c.slug}}'>{{c.titulo}}</a>
+										</li>
+                    {% if loop.index == limit_items %}
+										<li class='more'>
+											<a href='' class='load-more'>Ver mais</a>
+										</li>
+                    {% endif %}
+									{% endfor %}
+								</ul>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

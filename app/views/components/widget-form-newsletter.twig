@@ -1,0 +1,14 @@
+<div class='form-newsletter'>
+	<form novalidate='true' action='{{base_url()}}/newsletters' method='post' autocomplete='off'>
+		<div class='field'>
+			<input class='form-control' name='nome' placeholder='Seu nome' title='Digite seu nome aqui' type='text' v-model='nome'/>
+		</div>
+		<div class='field'>
+			<input class='form-control' name='email' placeholder='Seu e-mail' title='Digite seu e-mail aqui' type='email' v-model='email'/>
+		</div>
+		<button class='btn btn-primary btn-block' v-bind:disabled='submitting' title='Cadastrar' type='submit'>Cadastrar</button>
+	</form>
+	<div class='success-message'>
+		E-mail cadastrado com sucesso!
+	</div>
+</div>

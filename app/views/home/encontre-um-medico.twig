@@ -1,0 +1,22 @@
+<section class='find-doctor' id='encontre-um-medico'>
+	<div class='middle'>
+		<div class='section-header'>
+			<header class=''>
+				<h1 class='title'>Encontre um médico</h1>
+			</header>
+			<p>
+				Com a Unimed, sempre tem um médico pertinho de você.
+			</p>
+		</div>
+
+		{% include 'components/widget-encontre-medico.twig' %}
+
+    <div class='guia-wrapper'>
+      <h2 class='guia-title'>Guia Médico Nacional</h2>
+      <p>Para acesso a rede fora da área de cobertura Vale do Sinos clicar aqui</p>
+      <footer>
+        <a target='_blank' href='{{ config.GUIA_MEDICO_EXTERNO_LINK }}' class='btn btn-primary' title='Procurar'>Procurar</a>
+      </footer>
+    </div>
+	</div>
+</section>

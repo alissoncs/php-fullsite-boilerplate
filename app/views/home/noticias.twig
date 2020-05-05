@@ -1,0 +1,103 @@
+<section class='journal' id='noticiais'>
+
+	<div class='container'>
+		<div class='row'>
+			<!--
+			<div class='col-12 col-lg-7 sideleft'>
+
+				<div class='posts-box'>
+					{% set post_base_url = base_url() ~ '/noticias'%}
+					<header class='posts-header row'>
+						<div class='col-7 col-lg-8'>
+							<h1 class='title'>Notícias</h1>
+						</div>
+						<div class='col-5 col-lg-4'>
+							<a class='linkall' href='{{ post_base_url }}' title='Ver todas as notícias'>
+								Ver todas
+							</a>
+						</div>
+					</header>
+
+					<div class='posts-items row'>
+						{% for b in noticias %}
+							<div class='col-12 col-lg-6'>
+								{% include 'components/post-item.twig' %}
+							</div>
+						{% endfor %}
+					</div>
+
+				</div>
+
+				{% if blog and blog|length > 0 %}
+					<div class='posts-box'>
+						{% set post_base_url = base_url() ~'/blog' %}
+						<header class='posts-header row'>
+							<div class='col-7 col-lg-8'>
+								<h1 class='title'>Viver bem</h1>
+							</div>
+							<div class='col-5 col-lg-4'>
+								<a class='linkall' href='{{ post_base_url }}' title='Ver todas as postagens do blog'>
+									Acesse o blog
+								</a>
+							</div>
+						</header>
+
+						<div class='posts-items row'>
+							{% for b in blog %}
+								<div class='col-12 col-lg-6'>
+									{% include 'components/post-item.twig' %}
+								</div>
+							{% endfor %}
+						</div>
+
+					</div>
+				{% endif %}
+
+			</div>
+			<div class='col-12 col-lg-5'>
+			-->
+			<div class='col-12'>
+				{% if banners_servicos and banners_servicos|length > 0 %}
+					<aside class='banners'>
+						<h1 class='title'>Outros serviços</h1>
+            <div class='row'>
+						{% for b in banners_servicos %}
+
+							<div class='banner col-12 col-lg-4'>
+                {% set url = b.url %}
+								{% if url %}
+									{% if not is_absolute_url(url) %}
+                  {% set url = mount_url(url) %}
+									{% endif %}
+								{% else %}
+									{% set url = 'javascript:void(0);' %}
+								{% endif %}
+
+								<a class='banner-link' title='{{b.titulo}}' {% if b.nova_aba %}target='_blank'{% endif %} href='{{url}}'>
+									<figure class='posts-thumbnail'>
+										<img src='{{uploaded_image(b.imagem)}}' alt='{{b.titulo}}' title='{{b.titulo}}'/>
+									</figure>
+									<div class='legend'>
+										<header>
+											<h2 class='banner-title'>{{b.titulo}}</h2>
+											<p>{{b.subtitulo}}</p>
+										</header>
+										<p class='action'>
+											<span class='' title='{{b.titulo}}'>Acessar</span>
+										</p>
+									</div>
+								</a>
+							</div>
+						{% endfor %}
+            </div>
+
+					</aside>
+					{% else %}
+					<!-- banners empty (posicao 'servicos_home') -->
+				{% endif %}
+			</div>
+
+		</div>
+	</div>
+
+</section>

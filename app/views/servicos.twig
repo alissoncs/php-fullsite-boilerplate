@@ -1,0 +1,49 @@
+{% extends 'layout/wrapper.twig' %}
+
+{% block content %}
+    <section class='services services-home'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-12 col-lg-7'>
+                    <header class='services-home--header'>
+                        <h1 class='title'>A qualidade que você conhece para cuidar de sua família.</h1>
+                        <p class='resume'>Aqui, você pode navegar e conhecer um pouco mais sobre a estrutura de nosso hospital, estrutura de diagnóstico por imagem, entre outros. Basta selecionar o serviço que deseja conhecer, nos itens abaixo:
+                        </p>
+                    </header>
+                </div>
+                <div class='col-12 col-lg-5'>
+                    <article class='services-home--article'>
+                        <h2 class='services-home--article-title'>Quem pode utilizar nossos serviços?</h2>
+                        <div class='services-home--article-content'>
+                            <p>Clientes Unimed Vale do Sinos, de outras Unimeds, de outros convênios e particulares. Quando você precisar de internação, cirurgia, exames, procedimentos, assistência domiciliar, SOS, unidades de consulta, hospitais dia, saúde, ocupacional, saberá que pode contar com a gente.
+                            </p>
+
+                            <p>Em 2016, nossos Serviços alcançaram o índice de satisfação de 93,86%. É pra isso que investimos em nossa estrutura e qualificação do atendimento: para vê-lo satisfeito.
+                            </p>
+
+                            <p>Toda a estrutura da Unimed Vale do Sinos com a qualidade que você conhece à sua disposição para você para cuidar de você e de sua família.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-12'>
+                    <div class='services--listmap-grid'>
+
+                        {% for i in 1..4 %}
+                            {% for i in ['Thiago Nigro Brasil', 'Hospital Unimed', 'Hospital Unimed Brasil Porto Alegre'] %}
+                                <div class='services--listmap-item'>
+                                    <a href='{{base_url()}}/servicos/hospital' class='services--listmap-itemlink'>
+                                        <i class='icon-plus'></i>
+                                        <span>{{ i }}</span>
+                                    </a>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

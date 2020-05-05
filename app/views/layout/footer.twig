@@ -1,0 +1,87 @@
+{% include 'home/footer-sitemap.twig' %}
+
+
+<footer class='main-footer'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-12 col-lg-8'>
+
+				<div class='contact-info-footer'>
+					{% include 'home/contact-info.twig' %}
+				</div>
+
+			</div>
+			<div class='col-12 col-lg-4'>
+				<aside>
+
+					<div class='social-info'>
+						<h3 class='footer-title'>
+							Nos siga nas redes sociais:
+						</h3>
+
+						{% include 'home/social.twig' %}
+					</div>
+
+					{% if config.APP_ANDROID_URL or config.APP_IOS_URL %}
+
+						<div class='appdownload'>
+							<h3 class='footer-title'>
+								Baixe nosso aplicativo:
+							</h3>
+
+							{% include 'home/appdownload.twig' %}
+						</div>
+
+						{% else %}
+						<!-- sem links de app -->
+					{% endif %}
+
+				</aside>
+			</div>
+		</div>
+	</div>
+
+</footer>
+
+
+<div class='footer-bar'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-12 col-md-12 col-lg-5'>
+				<div class='logos'>
+					<div class='logos--item logos--item-fix'>
+						<a href='https://www.somos.coop.br/' target='_blank' rel='nofollow'>
+							<img src='{{base_url()}}/build/images/somoscoop-logo.png' title='somoscoop-logo' alt='somoscoop-logo'/>
+						</a>
+					</div>
+					<div class='logos--item'>
+						<a href='http://www.ans.gov.br/' target='_blank' rel='nofollow'>
+							<img src='{{base_url()}}/build/images/ans-logo.png' title='ans-logo' alt='ans-logo'/>
+						</a>
+					</div>
+					<div class='logos--item'>
+						<a href='http://www.ans.gov.br/' target='_blank' rel='nofollow'>
+							<img src='{{base_url()}}/build/images/ans-selo.png' title='ans-selo' alt='ans-selo'/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class='col-12 col-md-7 col-lg-3'>
+				<p class='copyright'>
+					Copyright 2001 - 2019 Portal Unimed - Todos os direitos reservados
+				</p>
+			</div>
+			<div class='col-12 col-md-5 col-lg-3'>
+				<div class='by-trinto'>
+					<strong>Powered by:</strong>
+					<a href='https://www.trinto.com.br/' rel='nofollow' target='_blank'>
+						<img src='{{base_url()}}/build/images/trinto-logo-market.svg' title='Trinto' alt='Trinto'/>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% include 'layout/mobile-features.twig' %}

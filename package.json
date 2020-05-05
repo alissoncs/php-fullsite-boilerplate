@@ -1,0 +1,50 @@
+{
+  "name": "unimed-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
+    "imagemin-jpegtran": "^6.0.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.4.4",
+    "autoprefixer": "^9.6.1",
+    "babelify": "^10.0.0",
+    "bootstrap": "4",
+    "bootstrap-less-port": "^1.0.0",
+    "browserify": "^16.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-variables": "^1.2.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulplog": "^1.0.0",
+    "imagemin-pngquant": "^7.0.0",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.12.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.15.0",
+    "redbird": "^0.9.1",
+    "select2": "^4.0.8",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "vue": "^2.6.10",
+    "vue-select": "^3.1.0"
+  }
+}

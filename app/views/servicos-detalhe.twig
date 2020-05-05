@@ -1,0 +1,92 @@
+{% extends 'layout/wrapper.twig' %}
+
+{% block content %}
+    <section class='services services-detail page-widget'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-12 col-lg-1'></div>
+                <div class='col-12 col-lg-7'>
+
+                    <header class='services--header'>
+                        <h1 class='title'>A qualidade que você conhece para cuidar de sua família.</h1>
+                        <p class='resume'>Aqui, você pode navegar e conhecer um pouco mais sobre a estrutura de nosso hospital, estrutura de diagnóstico por imagem, entre outros. Basta selecionar o serviço que deseja conhecer, nos itens abaixo:
+                        </p>
+                    </header>
+
+                    <div class='widget-builder row'>
+
+                        <div class='col-12'>
+                            {% include 'components/widget-localizacao.twig' %}
+                        </div>
+
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-lista.twig' %}
+                        </div>
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-lista.twig' %}
+                        </div>
+
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-box.twig' %}
+                        </div>
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-box.twig' %}
+                        </div>
+
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-texto.twig' %}
+                        </div>
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-figura.twig' %}
+                        </div>
+
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-figura.twig' %}
+                        </div>
+                        <div class='col-12 col-lg-6'>
+                            {% include 'components/widget-texto.twig' %}
+                        </div>
+
+                        <div class='col-12'>
+                            {% include 'components/widget-noticias.twig' %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class='col-12 col-lg-3'>
+
+                    <aside class=''>
+                        <div class='services--listmap'>
+
+                            {% for i in 1..4 %}
+                                {% for b in ['Thiago Nigro Brasil', 'Hospital Unimed', 'Hospital Unimed Brasil Porto Alegre'] %}
+                                  {% if (i == 1) %}
+                                    <div class='services--listmap-item open'>
+                                    {% else %}
+                                    <div class='services--listmap-item'>
+                                    {% endif %}
+                                        <a href='{{base_url()}}/servicos/hospital' class='services--listmap-itemlink'>
+                                            <i class='icon-plus'></i>
+                                            <span>{{ b }}</span>
+                                        </a>
+                                        <ul class='services--listmap-subitems'>
+                                            {% for i in 1..4 %}
+                                                <li>
+                                                    <a href=''>Subitem</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+
+                        </div>
+                    </aside>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

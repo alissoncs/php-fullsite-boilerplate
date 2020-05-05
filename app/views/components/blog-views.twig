@@ -1,0 +1,11 @@
+<div class='blog-views'>
+	<div class='blog-views--header'>
+    <h2>Mais lidas do mês</h2>
+  </div>
+	<div class='blog-views--item'>
+		{% for post in post_views %}
+      {% set horizontal = 1 %}
+			{% include 'components/post-item.twig' %}
+		{% endfor %}
+	</div>
+</div>

@@ -1,0 +1,79 @@
+{% set page_title = plano.titulo ~ ' - ' ~ plano.categoria.titulo %}
+{% set breadlinks = [
+    { titulo: 'Planos Unimed VS', url: '/planos' },
+    { titulo: plano.categoria.titulo, url: '/planos/' ~ plano.categoria.slug },
+    { titulo: plano.titulo, url: '/planos/' ~ plano.categoria.slug ~ '/' ~ plano.slug },
+] %}
+
+{% extends 'layout/wrapper.twig' %}
+
+{% block content %}
+	{% include 'layout/breadcrumb.twig' %}
+	<div class='container'>
+		<div class='plan-single'>
+			{% if plano.id != 26 %}
+			<header class='align-items-center row plan-single--header'>
+				<div class='col-12 col-lg-7'>
+					<h1 class='title'>{{plano.titulo}}</h1>
+					<p class='resume'>
+						{{plano.conteudo}}
+					</p>
+				</div>
+				<div class='col-12 col-lg-5'>
+					{% if plano.beneficios and plano.id != 26 %}
+						<div class='benefits'>
+							<h3 class='benefits-title'>Benefícios adicionais<br /> Unimed VS</h3>
+							<div class='benefits-content'>{{plano.beneficios|raw}}</div>
+						</div>
+					{% endif %}
+				</div>
+
+			</header>
+			{% endif %}
+			<div class='row'>
+
+				<div class='col-12 col-lg-10'>
+					<section class='simulation'>
+						<header class='simulation--header'>
+							<h2>Solicite uma simulação</h2>
+							<p>A simulação de seu plano não implica em qualquer compromisso, é apensa um formulário de solicitação para iniciar o contato com o vendedor da área comercial da Unimed.</p>
+						</header>
+
+						<form action='{{base_url()}}/planos/simulacao' class='form-wrapper' method='post'>
+							<div class='row'>
+								<div class='col-12 col-lg-6'>
+									<input name='plano_id' type='hidden' value='{{plano.id}}'/>
+									<input name='plano_titulo' type='hidden' value='{{plano.titulo}}'/>
+									<div class='form-group'>
+										<input class='form-control' name='nome' placeholder='Seu nome' required type='text'/>
+									</div>
+									<div class='form-group'>
+										<input class='form-control' name='email' placeholder='Seu e-mail' required type='email'/>
+									</div>
+									<div class='form-group'>
+										<input class='form-control mask-tel' name='telefone' placeholder='Seu telefone' required type='tel'/>
+									</div>
+								</div>
+								<div class='col-12 col-lg-6'>
+									<div class='form-group'>
+										<textarea class='form-control' name='mensagem' placeholder='Mensagem' required></textarea>
+									</div>
+									<div class='form-submit'>
+										<button class='btn btn-block btn-primary' type='submit'>Enviar formulário</button>
+									</div>
+								</div>
+							</div>
+						</form>
+
+					</section>
+				</div>
+			</div>
+			<div class='row' style="display:none;">
+				<div class='col-12 col-lg-9'>
+					{% include 'components/pontos-venda.twig' %}
+				</div>
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

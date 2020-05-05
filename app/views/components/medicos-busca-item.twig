@@ -1,0 +1,129 @@
+{% set i = medico %}
+
+{% set qualificacoes = {
+  'A': 'Programa de Acreditação',
+  'N': 'Comunicação de eventos adversos (NOTIVISA)',
+  'R': 'Residência',
+  'E': 'Título de Especialista',
+  'Q': 'Qualidade Monitorada',
+  'I': 'Certificação ISO 9001',
+  'P': 'Pós-graduação Lato Senso',
+  'M': 'Mestrado',
+  'D': 'Doutorado/Pós-Doutorado',
+  'G': 'Certificação de Entidades Gestoras de outros Programas de Qualidade',
+}
+%}
+
+{% set lat = i.lat|replace({ ',': '.' }) %}
+{% set lng = i.lon|replace({ ',': '.' }) %}
+
+{% set medico_qualificacoes_output = [] %}
+{% if i.acred %}
+  {% for acc in i.acred|split(',') %}
+    {% set accsplit = acc|split(';') %}
+
+    {% if accsplit and accsplit|length == 3 %}
+      {% if qualificacoes[accsplit[1]] %}
+
+        {% set medico_qualificacoes_output = medico_qualificacoes_output|merge([qualificacoes[accsplit[1]]]) %}
+
+      {% endif %}
+    {% endif %}
+
+  {% endfor %}
+{% endif %}
+
+<article class='medico-card card' id='card-id-{{i.id}}' data-json="{{ i|json_encode }}">
+	<h2 class='name'>{{i.nome}}</h2>
+	<p class='especialization' title='{{i.esp}} (RQE: {{i.acred}})'>
+    {{i.esp}}
+		{# {% if i.acred %}(RQE:
+			{{i.acred}})
+		{% endif %} #}
+	</p>
+	<div class='content'>
+		<div class='row'>
+			<div class='col-lg-6'>
+				<div class='address'>
+					<p>{{i.endereco}}
+						{{i.numero}}
+						{% if i.complemento %}
+							-
+							{{i.complemento}}
+						{% endif %}
+					</p>
+					<p>
+						<small>{{i.cid}}
+							{% if i.cep %}%| CEP:
+								{{i.cep}}
+							{% endif %}
+						</small>
+					</p>
+				</div>
+			</div>
+			<div class='col-lg-6'>
+				{% if lng and lat %}
+					<div class='map'>
+						<p class='distance-info' data-lng='{{lng}}' data-lat='{{lat}}' data-label-more='[km]km perto de você' data-label-less='Menos de 1km de você'></p>
+						<a href='#' data-toggle="modal" data-target='#modal-prestador-mapa-{{i.id}}' title='Ver no mapa'>Ver no mapa</a>
+
+					</div>
+				{% endif %}
+			</div>
+
+		</div>
+		{% if i.tel %}
+			<div class='phone'>
+				<p>{{i.tel}}</p>
+			</div>
+		{% endif %}
+
+		{% if i.tel_sec %}
+			<div class='phone phone-sec'>
+				<p>{{i.tel_sec}}</p>
+			</div>
+		{% endif %}
+
+		{# <div class='read-more'>
+        <div class='read-more-header'>
+          <a href='#'>Ver mais</a>
+          <i class='line'></i>
+        </div>
+      </div> #}
+
+		<footer>
+      {% if medico_qualificacoes_output %}
+      <span class='acredd'>
+        Qualificação:
+        {{ medico_qualificacoes_output|join(', ') }}
+      </span>
+      {% endif %}
+			{# <button type='button' title='Planos Atendidos' data-http='{{base_url()}}/medicos/detalhe/{{i.id}}' data-id='{{i.id}}' class='btn btn-secondary btn-planos' data-loading='Carregando...'>
+				Planos Atendidos
+			</button> #}
+		</footer>
+
+		<div class="modal modal-maps fade" id="modal-prestador-mapa-{{i.id}}" tabindex="-1" role="dialog" aria-labelledby="modal-prestador-mapa-{{i.id}}" aria-hidden="true">
+			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title" id="modal-prestador-mapa-{{i.id}}">
+							{{i.nome}}
+						</h3>
+						<span class='modal-primary-title'>Google Maps</span>
+						<button type="button" class="close" title='Fechar' data-dismiss="modal" aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div
+						class="modal-body">
+						{# <iframe src="https://maps.google.com/maps?q={{lat}},{{lng}}&hl=es;z=14&amp;output=embed" frameborder="0" style="border:0;" allowfullscreen=""></iframe> #}
+						<iframe src="https://maps.google.com/maps?q={{i.nome|url_encode}},{{i.endereco|url_encode}},{{lat}},{{lng}}&hl=es;z=14&amp;output=embed" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</article>

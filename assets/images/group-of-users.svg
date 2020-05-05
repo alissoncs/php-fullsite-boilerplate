@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="63.475" height="35.974" viewBox="0 0 63.475 35.974">
+  <g id="Grupo_957" data-name="Grupo 957" transform="translate(-386 -683.487)">
+    <g id="add-user-button" transform="translate(421 687.237)">
+      <g id="person-add" transform="translate(0 0)">
+        <path id="Caminho_123" data-name="Caminho 123" d="M23,90.737a7.119,7.119,0,1,0-7.119-7.119A7.14,7.14,0,0,0,23,90.737ZM23,94.3c-4.805,0-14.237,2.314-14.237,7.119v3.559H37.233v-3.559C37.233,96.61,27.8,94.3,23,94.3Z" transform="translate(-8.759 -76.5)" fill="#333"/>
+      </g>
+    </g>
+    <g id="add-user-button-2" data-name="add-user-button" transform="translate(386 687.237)">
+      <g id="person-add-2" data-name="person-add" transform="translate(0 0)">
+        <path id="Caminho_123-2" data-name="Caminho 123" d="M23,90.737a7.119,7.119,0,1,0-7.119-7.119A7.14,7.14,0,0,0,23,90.737ZM23,94.3c-4.805,0-14.237,2.314-14.237,7.119v3.559H37.233v-3.559C37.233,96.61,27.8,94.3,23,94.3Z" transform="translate(-8.759 -76.5)" fill="#333"/>
+      </g>
+    </g>
+    <g id="add-user-button-3" data-name="add-user-button" transform="translate(400 684.237)">
+      <g id="person-add-3" data-name="person-add" transform="translate(0 0)">
+        <path id="Caminho_123-3" data-name="Caminho 123" d="M26,93.737a8.619,8.619,0,1,0-8.619-8.619A8.644,8.644,0,0,0,26,93.737Zm0,4.309c-5.818,0-17.237,2.8-17.237,8.619v4.309H43.233v-4.309C43.233,100.847,31.813,98.046,26,98.046Z" transform="translate(-8.759 -76.5)" fill="#333" stroke="#fff" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

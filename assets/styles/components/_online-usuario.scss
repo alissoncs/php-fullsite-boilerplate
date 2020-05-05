@@ -1,0 +1,129 @@
+.user-web-creation {
+  padding: 4rem 0;
+  h1 {
+    font-size: rem(53);
+    margin-bottom: 2rem;
+  }
+
+  .btn.ready {
+    padding: 14px 0;
+    font-size: rem(22);
+    &:disabled {
+      cursor: disabled;
+    }
+  }
+
+  .block-links {
+    margin-bottom: 30px;
+    ul {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 2rem -5px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 5px;
+
+        @include media-breakpoint-up('md') {
+          width: 50%;
+        }
+      }
+
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: black;
+        min-height: 230px;
+        width: 100%;
+        border: 1px solid $grey3;
+        border-radius: 4px;
+        text-align: center;
+        font-weight: bold;
+        padding: 20px 30px;
+        @include fade;
+        font-size: rem(18);
+
+        svg {
+          fill: $title-color;
+        }
+
+        i {
+          display: block;
+          margin-bottom: 22px;
+        }
+
+        strong {
+          width: 100%;
+          min-height: 50px;
+          display: block;
+          text-align: center;
+          font-weight: bold;
+        }
+
+        &:hover {
+          @include fade;
+          background: $primary;
+          color: white;
+          svg {
+            fill: white;
+            path {
+              fill: white;
+              stroke: white;
+            }
+          }
+        }
+
+      }
+
+      li.restrict {
+        width: 100%;
+        a {
+          min-height: 0;
+          > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i {
+              margin: 0;
+              margin-right: 20px;
+              vertical-align: middle;
+              position: relative;
+              top: -2px;
+            }
+          }
+          &:hover {
+            svg {
+              path {
+                stroke: transparent;
+              }
+            }
+          }
+        }
+      }
+
+      li.selected a {
+        @include fade;
+        background: $primary;
+        color: white;
+
+        svg {
+          fill: white;
+          path {
+            fill: white;
+            stroke: white;
+          }
+        }
+      }
+    }
+  }
+}

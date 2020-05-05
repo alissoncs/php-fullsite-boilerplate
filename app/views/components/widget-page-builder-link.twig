@@ -1,0 +1,39 @@
+{% if options.titulo %}
+	<h4 class=''>{{options.titulo}}</h4>
+{% endif %}
+{% if options.links %}
+	<ul class='group-links'>
+		{% for link in options.links %}
+
+			{% if link.url %}
+				{% if is_absolute_url(link.url) %}
+					{% set url = link.url %}
+				{% else %}
+					{% set url = base_url() ~ link.url %}
+				{% endif %}
+			{% endif %}
+
+			{% if link.file %}
+				{% set url = base_url() ~ '/upload/downloads/' ~ link.file %}
+			{% endif %}
+
+
+			{% set color = 'default' %}
+			{% if link.color %}
+				{% set color = link.color %}
+			{% endif %}
+			<li class=''>
+				<a {% if url %} href='{{ url }}' {% else %} disabled {% endif %} {% if link.file %} download='{{link.file}}' {% endif %} title='{{link.title}}' class='iconed-link color-{{color}}'>
+					<span class='icon'>
+						<img src='{{ uploaded_image(link.icon) }}' alt='{{link.title}}'/>
+					</span>
+					<strong>{{link.title}}</strong>
+					{% if link.sub %}
+						<small class='sub'>{{link.sub}}</small>
+					{% endif %}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+
+{% endif %}

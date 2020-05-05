@@ -1,0 +1,7 @@
+{
+  "trailingComma": "all",
+  "eslintIntegration": true,
+  "stylelintIntegration": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true
+}

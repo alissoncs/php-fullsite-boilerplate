@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta content="ie=edge; chrome=1" http-equiv="x-ua-compatible">
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap" rel="stylesheet">
+<link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
+
+<title>
+	{% if page_title %}
+		{{page_title}} | {% endif %}
+	{% if config.NOME_SITE %}
+		{{config.NOME_SITE}}{% else %}Unimed Vale do Sinos/RS
+	{% endif %}
+</title>
+
+<script type='text/javascript'>
+  window.HIGH_CONTRAST_CSS = '{{ base_url() }}/build/styles/contrast.min.css?asset-version={{config.CACHE_ID}}';
+</script>
+
+<link rel='stylesheet' type='text/css' href='{{ base_url() }}/build/styles/main.min.css?asset-version={{config.CACHE_ID}}'/>
+<link rel='stylesheet' type='text/css' href='{{ base_url() }}/custom.css?asset-version={{config.CACHE_ID}}'/>
+<script type='text/javascript'>
+	window.BASE_API_URL = '{{ base_url() }}';
+  window.appConfigs = {{ config|json_encode|raw }};
+</script>

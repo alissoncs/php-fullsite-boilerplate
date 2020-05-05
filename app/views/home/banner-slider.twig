@@ -1,0 +1,66 @@
+<section class='banner-slider banner-block' id='banner-slider'>
+{% if sliders and sliders|length > 0 %}
+    <div class='slick'>
+        {% for b in sliders %}
+                {% if b.imagem %}
+            <article class='banner-view'>
+                {% else %}
+            <article class='banner-view no-image'>
+                {% endif %}
+
+                {% if b.imagem %}
+                    <div class='image-box' style='background-image: url({{ uploaded_image(b.imagem) }})'></div>
+                {% endif %}
+
+                {% if b.imagem_mobile %}
+                    <div class='image-box image-box-mobile' style='background-image: url({{ uploaded_image(b.imagem_mobile) }})'></div>
+                {% endif %}
+                {% if b.url %}
+                <a href='{{ mount_url(b.url) }}' title='{{b.titulo}}' class='content-link' {% if b.nova_aba %}target='_blank'{% endif %}>
+                {% endif %}
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-9 col-md-6 col-lg-5'>
+                            <div class='content'>
+
+                                    <header>
+                                        <h1 class='title'>
+                                            {{b.titulo}}
+                                        </h1>
+                                    </header>
+                                    {% if b.sub_titulo %}
+                                    <p>
+                                        <small class='sub-label'>{{b.sub_titulo}}</small>
+                                    </p>
+                                    {% endif %}
+                                    {% if b.resumo %}
+                                    <p class='description'>
+                                        {{b.resumo}}
+                                    </p>
+                                    {% endif %}
+
+                                    {% if b.btn_titulo %}
+                                    <p class='calltoaction'>
+                                        {% if btn_icon == 'video' %}
+                                        <span class='btn-primary video-icon'>
+                                        {% else %}
+                                        <span class='btn btn-primary'>
+                                        {% endif %}
+                                        {{ b.btn_titulo }}
+                                        </span>
+                                    </p>
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- container -->
+                {% if b.url %}
+                </a>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+{% else %}
+<!-- Nenhum banner disponível -->
+{% endif %}
+</section>

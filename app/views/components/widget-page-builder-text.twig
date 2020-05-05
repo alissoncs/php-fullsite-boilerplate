@@ -1,0 +1,8 @@
+{% if options.title %}
+<h2>{{options.title}}</h2>
+{% endif %}
+{% if options.content %}
+<div class='text-inner'>
+    {{options.content|raw}}
+</div>
+{% endif %}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39.077" height="28.987" viewBox="0 0 39.077 28.987">
+  <g id="Grupo_602" data-name="Grupo 602" transform="translate(-80.01 -261.763)">
+    <g id="add-user-button" transform="translate(80.76 269.137)">
+      <g id="person-add" transform="translate(0 0)">
+        <path id="Caminho_123" data-name="Caminho 123" d="M18.879,86.62a5.06,5.06,0,1,0-5.06-5.06A5.075,5.075,0,0,0,18.879,86.62Zm0,2.53c-3.415,0-10.12,1.644-10.12,5.06v2.53H29V94.21C29,90.794,22.294,89.15,18.879,89.15Z" transform="translate(-8.759 -76.5)" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+      </g>
+    </g>
+    <g id="add-user-button-2" data-name="add-user-button" transform="translate(90.85 262.513)">
+      <g id="person-add-2" data-name="person-add" transform="translate(0 0)">
+        <path id="Caminho_123-2" data-name="Caminho 123" d="M22.5,90.244a6.872,6.872,0,1,0-6.872-6.872A6.892,6.892,0,0,0,22.5,90.244Zm0,3.436c-4.638,0-13.744,2.233-13.744,6.872v3.436H36.246v-3.436C36.246,95.913,27.141,93.679,22.5,93.679Z" transform="translate(-8.759 -76.5)" fill="#fafafa" stroke="#333" stroke-width="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

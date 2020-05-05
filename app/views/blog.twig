@@ -1,0 +1,61 @@
+{% set page_title = 'Blog Viver Bem ' %}
+
+{% extends 'layout/wrapper.twig' %}
+
+{% block content %}
+	{% include 'components/blog-header.twig' %}
+	{% include 'components/blog-menu.twig' %}
+	{% set post_base_url = base_url() ~ '/blog' %}
+
+	{% set isHome = posts and current_page == 1 and not tag and not categoria %}
+
+	<div class='container'>
+		<div class='blog-home-wrapper row'>
+			{% if isHome %}
+				<div class='col-lg-12'>
+					<div class='featured-post'>
+						{% include 'components/post-item-featured.twig' with { post: posts|first } %}
+					</div>
+				</div>
+			{% endif %}
+			<div class='col-lg-8'>
+
+        {% if categoria %}
+					<h2 class='blog-subtitle'>{{categoria.titulo}}</h2>
+					<br/>
+				{% endif %}
+				{% if tag %}
+					<h2 class='blog-subtitle'>
+            Assunto:
+						{{tag.titulo}}</h2>
+					<br/>
+				{% endif %}
+
+				{% if posts and posts|length > 0 %}
+					<div class='row'>
+						{% if isHome %}
+							{% set posts = posts|filter((post, index) => index > 0) %}
+						{% endif %}
+						{% for b in posts %}
+							<div class='col-lg-6'>
+								{% include 'components/post-item.twig' with { post: b } %}
+							</div>
+						{% endfor %}
+					</div>
+					<footer class='pagination-footer'>
+						{% include 'components/paginador.twig' %}
+					</footer>
+        {% else %}
+        <p>Nenhum postagem encontrada</p>
+				{% endif %}
+
+				{% if post_views %}
+					{% include 'components/blog-views.twig' %}
+				{% endif %}
+			</div>
+			<div class='col-lg-4'>
+				{% include 'components/blog-sidebar.twig' %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

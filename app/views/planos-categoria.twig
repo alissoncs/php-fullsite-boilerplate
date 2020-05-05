@@ -1,0 +1,188 @@
+{% set page_title = categoria.titulo %}
+{% set breadlinks = [
+    { titulo: 'Planos Unimed VS', url: '/planos' },
+    { titulo: categoria.titulo, url: '/planos/' ~ categoria.slug },
+] %}
+
+{% extends 'layout/wrapper.twig' %}
+
+{% block content %}
+	{% include 'layout/breadcrumb.twig' %}
+
+	{% if categoria.background is not empty %}
+		<section class='plans-category--top' style="background-image:url({{base_url()}}/upload/{{categoria.background}});">
+		{% else %}
+			<section class='plans-category--top no-background'>
+			{% endif %}
+			<div class='container'>
+				<header class='plans-category--header row'>
+					<div class='col-12 col-md-6'>
+						<h1 class='title'>{{ categoria.titulo }}</h1>
+					</div>
+					<div class='col-12 col-md-6 d-none d-md-block'>
+						<div class='header--button-right'>
+							{% if categoria.id != 9 %}
+							<a href='{{base_url()}}/encontre-seu-plano/{{categoria.slug}}' class='btn btn-find-plan btn-outline-secondary' title='Encontre o melhor plano'>
+								Encontre o melhor plano
+							</a>
+							{% endif %}
+						</div>
+					</div>
+				</header>
+			</div>
+		</section>
+		<div class='container'>
+			<div class='plans-category'>
+
+				<div class='row align-items-center'>
+					<div class='col-12 col-lg-6'>
+						<div class='plans-category--resume'>
+							<div>{{categoria.conteudo|raw}}</div>
+							<div class='d-md-none plans-category--button'>
+								<a href='{{base_url()}}/encontre-seu-plano/{{categoria.slug}}' class='btn btn-find-plan btn-outline-secondary' title='Encontre o melhor plano'>
+									Encontre o melhor plano
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='plans--grid row'>
+					{% if planos and planos|length > 0 %}
+						{% for p in planos %}
+							<div class='col-12 col-lg-6'>
+								<div class='plan-detail'>
+									<header class='plan-detail--header'>
+										<h2 class='plan-detail--title'>
+											{{p.titulo}}
+										</h2>
+									</header>
+									<div class='plan-detail--content'>
+										{{p.conteudo}}
+									</div>
+									<div class='plan-detail--options'>
+										{% if p.cobertura is not empty %}
+											<p>
+												<strong>Cobertura:</strong>
+												{{p.cobertura}}
+											</p>
+										{% endif %}
+										{% if p.rede is not empty %}
+											<p>
+												<strong>Rede:</strong>
+												{{p.rede}}
+											</p>
+										{% endif %}
+										{% if p.acomodacao is not empty %}
+											<p>
+												<strong>Acomodação:
+												</strong>
+												{{p.acomodacao}}
+											</p>
+										{% endif %}
+										{% if p.coparticipacao is not empty %}
+											<p>
+												<strong>Coparticipaçāo:</strong>
+												{{c.coparticipacao}}
+											</p>
+										{% endif %}
+									</div>
+									<footer class='plan-detail--footer'>
+										<a href='{{base_url()}}/planos/{{categoria.slug}}/{{p.slug}}' class='btn btn-secondary' title='Contratar plano'>Contratar</a>
+									</footer>
+
+								</div>
+							</div>
+						{% endfor %}
+					{% else %}
+						<p class='empty'>Nenhum plano para essa categoria</p>
+					{% endif %}
+				</div>
+
+				{% set arquivos = categoria.arquivos() %}
+				{% if arquivos %}
+					<div class='plan-files'>
+						<div class='row'>
+							{% for arquivo in arquivos %}
+
+								{% set url = arquivo.url %}
+								{% if arquivo.arquivo %}
+									{% set url = base_url() ~ '/upload/downloads/' ~ arquivo.arquivo %}
+								{% endif %}
+
+								<div class='col-lg-4'>
+									<div class='plan-files--item'>
+										<h3>{{arquivo.nome}}</h3>
+										<div class='button-wrapper'>
+											<a class='btn btn-downloadable btn-outline-primary' href='{{url}}' title='Clique para acessar {{options.arquivo}}' {% if options.arquivo %} download='{{options.arquivo}}' {% endif %}>
+												<i class='icon-btn-noicon'></i>
+												<span>
+													{% if options.btn_label %}
+														{{ options.btn_label }}
+													{% else %}
+														Baixar Documento
+													{% endif %}
+												</span>
+											</a>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}
+
+
+{#
+				{% if planos and planos|length > 1 %}
+
+					<div class='row plans-compare'>
+						<div class='col-12'>
+
+							<h1 class='title'>Comparando os planos</h1>
+							<div class='plans-compare--table-wrapper'>
+								<table class='plans-compare--table'>
+									<thead>
+										<th class='empty'></th>
+										{% for p in planos %}
+											<th>{{p.titulo}}</th>
+										{% endfor %}
+									</thead>
+									<tbody>
+										<tr>
+											<th>Cobertura</th>
+											{% for p in planos %}
+												<td>{{p.cobertura}}</td>
+											{% endfor %}
+										</tr>
+										<tr>
+											<th>Rede</th>
+											{% for p in planos %}
+												<td>{{p.rede}}</td>
+											{% endfor %}
+										</tr>
+										<tr>
+											<th>Acomodação</th>
+											{% for p in planos %}
+												<td>{{p.acomodacao}}</td>
+											{% endfor %}
+										</tr>
+										<tr>
+											<th>Coparticipaçāo</th>
+											{% for p in planos %}
+												<td>{{p.coparticipacao}}</td>
+											{% endfor %}
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				{% endif %}
+
+        #}
+
+
+			</div>
+		</div>
+	{% endblock %}

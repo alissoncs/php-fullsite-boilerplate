@@ -1,0 +1,14 @@
+<svg id="small-calendar" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="calendar_1_">
+    <path id="Caminho_190" data-name="Caminho 190" d="M29.334,3H25V1a1,1,0,0,0-2,0V3H17V1a1,1,0,0,0-2,0V3H9V1A1,1,0,0,0,7,1V3H2.667A2.666,2.666,0,0,0,0,5.666V29.333A2.667,2.667,0,0,0,2.667,32H29.334A2.666,2.666,0,0,0,32,29.333V5.666A2.665,2.665,0,0,0,29.334,3ZM30,29.333a.667.667,0,0,1-.666.667H2.667A.667.667,0,0,1,2,29.333V5.666A.667.667,0,0,1,2.667,5H7V7A1,1,0,0,0,9,7V5h6V7a1,1,0,0,0,2,0V5h6V7a1,1,0,0,0,2,0V5h4.334A.667.667,0,0,1,30,5.666Z" fill="#333"/>
+    <rect id="Retângulo_1718" data-name="Retângulo 1718" width="4" height="3" transform="translate(7 12)" fill="#333"/>
+    <rect id="Retângulo_1719" data-name="Retângulo 1719" width="4" height="3" transform="translate(7 17)" fill="#333"/>
+    <rect id="Retângulo_1720" data-name="Retângulo 1720" width="4" height="3" transform="translate(7 22)" fill="#333"/>
+    <rect id="Retângulo_1721" data-name="Retângulo 1721" width="4" height="3" transform="translate(14 22)" fill="#333"/>
+    <rect id="Retângulo_1722" data-name="Retângulo 1722" width="4" height="3" transform="translate(14 17)" fill="#333"/>
+    <rect id="Retângulo_1723" data-name="Retângulo 1723" width="4" height="3" transform="translate(14 12)" fill="#333"/>
+    <rect id="Retângulo_1724" data-name="Retângulo 1724" width="4" height="3" transform="translate(21 22)" fill="#333"/>
+    <rect id="Retângulo_1725" data-name="Retângulo 1725" width="4" height="3" transform="translate(21 17)" fill="#333"/>
+    <rect id="Retângulo_1726" data-name="Retângulo 1726" width="4" height="3" transform="translate(21 12)" fill="#333"/>
+  </g>
+</svg>

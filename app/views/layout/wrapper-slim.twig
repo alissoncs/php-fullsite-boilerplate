@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+    <head>
+      {% include 'layout/head.twig' %}
+    </head>
+
+    <body class='{{ body_class }}' id='{{ body_id }}'>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v4.0"></script>
+
+        <div id='app'>
+            {% block prepend_body %}{% endblock %}
+            {% include 'layout/header-slim.twig' %}
+            <div class='main-wrapper'>
+                <main id='main'>
+                  {% block content %}{% endblock %}
+                </main>
+            </div>
+            {% include 'layout/footer.twig' %}
+        </div>
+        {% include 'layout/append-body.twig' %}
+
+
+        {% block append_body %}{% endblock %}
+
+    </body>
+</html>

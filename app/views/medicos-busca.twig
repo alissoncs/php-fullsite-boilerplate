@@ -1,0 +1,191 @@
+{% extends 'layout/wrapper.twig' %}
+
+{% set breadlinks = [
+    { titulo: 'Médicos', url: '/medicos' },
+] %}
+
+
+{% block content %}
+
+	{% include 'layout/breadcrumb.twig' %}
+  <script>
+    window.MEDICO_QUERY_DATA = {
+      cliente: {{cliente | json_encode | raw}},
+      plano: {{plano | json_encode | raw}}
+    };
+    console.info(window.MEDICO_QUERY_DATA);
+  </script>
+	<div class='medicos-results'>
+
+		<form novalidate='true' data-http='{{base_url()}}' action='{{base_url()}}/medicos/busca' method='get' autocomplete='off'>
+
+			<section class='find-doctor find-doctor--internal' id='encontre-um-medico'>
+				<div class='middle'>
+					<div class='section-header'>
+						<header class=''>
+							<h1 class='title'>Encontre um médico</h1>
+						</header>
+						<p>
+							Com a Unimed, sempre tem um médico pertinho de você.
+						</p>
+					</div>
+          <div class='basic-panel'>
+            <div class='query-field'>
+              <input name='termo' value='{{source_query.termo}}' placeholder='O que você está buscando?' title='O que você está buscando?' type='text'/>
+              <button aria-label='Pesquisar médico' class='btn btn-secondary' title='Pesquisar médico' type='submit'>
+                Pesquisar
+              </button>
+            </div>
+          </div>
+
+				</div>
+			</section>
+
+			<div class='container'>
+
+				<div class='row'>
+					<div class='col-md-12'>
+						<div class='results-header'>
+
+							{% if result %}
+								{% if basica %}
+									<div class='info'>
+										<h4>Encontramos
+											{{total_count}} resultado{% if total_count != 1 %}s{% endif %}
+											para o termo
+											<span>"{{source_query.termo}}"</span>
+										</h4>
+									</div>
+								{% else %}
+									<div class='info'>
+										<h4>Encontramos
+											{{total_count}}
+                      resultados para sua pesquisa
+										</h4>
+									</div>
+								{% endif %}
+							{% endif %}
+
+						</div>
+					</div>
+					<div class='col-md-12'>
+
+						<div class='filters'>
+
+							<span class='filters-label'>
+								Filtrar:
+							</span>
+							<div class='filters-options'>
+
+								<div aria-label='Selecione a cidade' class='form-group'>
+									<select data-placeholder='Selecione a cidade' value='{{source_query.cidade}}' id='select-cidades' class='custom-select' name='cidade'>
+										<option value=''>Selecione</option>
+										{% if cidades %}
+											{% for cidade in cidades %}
+												<option value='{{cidade.codigo_IBGE}}' {% if source_query.cidade == cidade.codigo_IBGE %} selected {% endif %}>
+													{{cidade.nome}}
+												</option>
+											{% endfor %}
+										{% endif %}
+									</select>
+								</div>
+
+								<div aria-label='Tipo de prestador' class='form-group'>
+									<select data-placeholder='Selecione o tipo' class='custom-select' id='select-tipo-prestador' name='tipo_prestador' {% if prestadores %} {% else %} disabled {% endif %}>
+										<option value=''>Selecione</option>
+										{% if prestadores %}
+											{% for prestador in prestadores %}
+												<option value='{{prestador.classe}}' {% if source_query.tipo_prestador == prestador.classe %} selected {% endif %}>
+													{{prestador.descricao}}
+												</option>
+											{% endfor %}
+										{% endif %}
+									</select>
+								</div>
+
+								<div aria-label='Especialidade' class='form-group'>
+									<select class='custom-select' name='especialidade' id='select-especialidade' data-placeholder='Selecione a especialidade' {% if especialidades %} {% else %} disabled {% endif %}>
+										<option value=''>Selecione</option>
+										{% if especialidades %}
+											{% for especialidade in especialidades %}
+												<option value='{{especialidade.codigo_CBO}}' {% if source_query.especialidade == especialidade.codigo_CBO %} selected {% endif %}>
+													{{especialidade.descricao}}
+												</option>
+											{% endfor %}
+										{% endif %}
+									</select>
+								</div>
+								<div  aria-label='Especialidade' class='form-group'>
+                  <input class='form-control mask-number' placeholder='CPF/Nº carteirinha' value="{{source_query.documento}}" name='documento' />
+								</div>
+
+								<button type='submit' class='btn btn-primary'>
+									Filtrar
+								</button>
+
+							</div>
+						</div>
+					</div>
+
+					<div
+						class='col-md-6'>
+            {# <div class='header-grow'>
+							                <span class='map-location'>
+							                  Perto de mim
+							                </span>
+							                <div class='view-mode'>
+							                  <span>
+							                    Visualização:
+							                  </span>
+							                  <div class='view-mode-options'>
+							                    <button class='btn-toggle btn-grid' title='Grade'></button>
+							                    <button class='btn-toggle btn-list' title='Lista'></button>
+							                  </div>
+							                </div>
+							              </div> #}
+					</div>
+				</div>
+			</div>
+
+		</form>
+
+    {% if error %}
+    <div class='medicos-results-empty'>
+      {{error}}
+      <script type='text/javascript'>
+      if (console && console.error) {
+        console.error("Erro na Api de Médicos: {{internal_error}}");
+      }
+      </script>
+    </div>
+		{% elseif result and result|length %}
+			<div class='container'>
+				<div class='results'>
+					<div class='row'>
+						{% for medico in result %}
+							<div class='col-lg-6'>
+								{% include 'components/medicos-busca-item.twig' %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+        {% if total_pages > 1 %}
+        <div class='load-more'>
+          <button
+            data-output='.medicos-results .results > .row'
+            data-loading='Carregando...'
+            data-total-pages='{{total_pages}}'
+            data-pagesize=''
+            data-page='1'
+            class='btn btn-secondary btn-lg btn-load'>Carregar mais...</button>
+        </div>
+        {% endif %}
+
+			</div>
+		{% else %}
+			<div class='medicos-results-empty'>
+				Nenhum prestador encontrado para essa busca.
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

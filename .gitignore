@@ -1,0 +1,15 @@
+vendor
+*.log
+public/build
+node_modules
+build
+*.zip
+
+*.log
+
+
+public/upload/*
+public/upload/thumbnail/*
+/logs
+.env
+public_external

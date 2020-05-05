@@ -1,0 +1,24 @@
+<div class='widget widget-noticias'>
+    <header class='widget--header'>
+        <h4 class='widget--title'>
+            Notícias
+        </h4>
+    </header>
+    <div class='posts-items row'>
+        {% for i in 1..2 %}
+            <div class='col-12 col-lg-6'>
+                <article class='post'>
+                    <a class='post-link' href='{{base_url()}}/noticias/1231'>
+                        <figure class='posts-thumbnail'>
+                            <img src='{{base_url()}}/build/images/tmp/uti_referencia_UNIMED@2x.png' alt='' title=''/>
+                        </figure>
+                        <h2 class='post-title'>Bercário virtual</h2>
+                        <div class='resume'>
+                            Nos seus mais de 40 anos de existência, a Unimed Vale do Sinos buscou oportunizar, por meio de seus planos de saúde, alguns diferenciais aos seus clientes.
+                        </div>
+                    </a>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+</div>

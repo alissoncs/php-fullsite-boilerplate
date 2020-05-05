@@ -1,0 +1,17 @@
+
+<div class='phone-line-group'>
+{% if config.TELEFONE_0800 is not empty %}
+    <span aria-describedby='Telefone de atendimento' aria-label='Telefone' class='phone-line' title='Telefone SOS'>
+        <span class='icon-phone'></span>
+        <strong>{{config.TELEFONE_0800}}</strong>
+    </span>
+{% endif %}
+{% if config.TELEFONE_SOS_0800 is not empty %}
+    <span aria-describedby='Telefone de atendimento' aria-label='Telefone' class='phone-line sos' title='Telefone SOS'>
+        <span class='tme'>SOS</span>
+        <strong>{{config.TELEFONE_SOS_0800}}</strong>
+    </span>
+{% endif %}
+
+</div>
+

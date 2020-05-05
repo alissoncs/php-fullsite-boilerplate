@@ -1,0 +1,21 @@
+.imc-template {
+  padding: 20px 0;
+  .result-output {
+    text-align: center;
+    padding: 22px 12px;
+    big {
+      vertical-align: middle;
+      line-height: 1;
+      display: inline-block;
+      margin-right: 10px;
+      font-size: rem(34);
+      font-weight: bold;
+      color: $title-color;
+    }
+    &.danger {
+      big {
+        color: #aa2e2e;
+      }
+    }
+  }
+}

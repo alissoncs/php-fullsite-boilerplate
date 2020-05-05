@@ -1,0 +1,56 @@
+<section class='find-plan' id='planos'>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-12 col-lg-4'>
+                <article class='content'>
+                    <header>
+                      <h1 class='title'>
+                        Sempre preocupado com você.
+                      </h1>
+                    </header>
+
+                    <p>Escolha seu perfil e faça uma simulaçāo para encontrar o melhor plano para você.</p>
+
+                    <footer>
+                      <p>
+                        <a href='{{base_url()}}/planos' class='btn btn-outline-primary' title='Ver todos os planos'>
+                          Ver todos os planos
+                        </a>
+                      </p>
+                    </footer>
+                </article>
+            </div>
+            <div class='col-12 col-lg-8'>
+
+                {% if planos_categorias|length > 0 %}
+                <div class='plans-carousel'>
+                    <div class='slick'>
+                        {% for c in planos_categorias %}
+                            <div class='plan'>
+                                <header class='plan-header'>
+                                    <figure class='figure'>
+                                        <img src='{{ uploaded_image(c.thumbnail) }}' alt='{{c.titulo}}'/>
+                                    </figure>
+                                    <h2>{{c.titulo}}</h2>
+                                </header>
+                                <div class='plan-description'>
+                                    <p>{{resume_text(c.resumo, 90)}}</p>
+                                </div>
+                                    <footer>
+                                        <a href='{{base_url()}}/encontre-seu-plano/{{c.slug}}' class='btn btn-outline-primary' title='Ver todos os planos'>
+                                            Encontrar plano
+                                        </a>
+                                    </footer>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% else %}
+                <p>Nenhum categoria de plano cadastrada e ativa</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</section>

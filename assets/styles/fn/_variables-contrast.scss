@@ -1,0 +1,32 @@
+@if $contrast>0 {
+  $base-color : #008F58;
+  $lightgreen : #B1D249;
+  $title-color: #ddd;
+  $text-color : #909090;
+  $body-color : $text-color;
+  $bg-white   : #444;
+
+  $blue  : $primary;
+  $indigo: #6610f2;
+  $purple: #6f42c1;
+  $pink  : #ed1651;
+  $red   : #ed1651;
+  $orange: #f47920;
+  $yellow: #ffc107;
+  $green : $base-color;
+  $teal  : #20c997;
+  $cyan  : #17a2b8;
+  $grey  : #333;
+  $grey2: #666;
+  $grey3: #555;
+
+  $primary  : $base-color;
+  $secondary: $lightgreen;
+
+  $success: $green;
+  $info   : $cyan;
+  $warning: $yellow;
+  $danger : $red;
+  $light  : #F4F4F4;
+  $dark   : $title-color;
+}

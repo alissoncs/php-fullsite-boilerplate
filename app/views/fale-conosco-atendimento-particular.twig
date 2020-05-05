@@ -1,0 +1,117 @@
+{% set page_title = 'Fale conosco' %}
+
+{% set breadlinks = [
+    { titulo: 'Fale Conosco', url: '/fale-conosco' },
+
+    { titulo: 'Atendimento Particular', url: '/fale-conosco/atendimento-particular' },
+] %}
+{% extends 'layout/wrapper.twig' %}
+
+{# Form:
+*Nome completo:
+*Telefone:
+Local de preferência: (abrir lista suspensa com as opções: Hospital Unimed, Hospital Dia e Pronto Atendimento SL, Hospital Dia e Pronto Atendimento NH)
+Médico assistente: texto
+*Procedimento médico: texto
+*Acomodação (abrir lista suspensa com opções: Privativo, Semi-privativo)
+enviar para e-mail orcamentos@vs.unimed.com.br #}
+{% block content %}
+	{% include 'layout/breadcrumb.twig' %}
+
+
+	<div class='fale-conosco single-page'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-lg-10'>
+					<header class='single-page-header'>
+						<h1 class='title'>Atendimento Particular</h1>
+						<div class='description'></div>
+					</header>
+					<div class='content'>
+						<div class='form-element visible'>
+
+							<form class='' novalidate='true' autocomplete='off' spellcheck='false' action='{{base_url()}}/fale-conosco/atendimento-particular/submit' method='post' autocomplete='off'>
+
+								<div class='row'>
+									<div class='col-12 col-lg-12'>
+										<div class='form-element-title'>
+											<h2 class='h3'>Formulário</h2>
+										</div>
+									</div>
+									<div class='col-12 col-lg-6'>
+										<div class='form-group'>
+											<input type='hidden' name='assunto' value='atendimento-particular'/>
+											<label>Nome</label>
+											<input class='form-control' name='nome' placeholder='Seu nome' required type='text'/>
+										</div>
+										<div class='form-group'>
+											<label>E-mail</label>
+											<input class='form-control' name='email' placeholder='Seu e-mail' required type='email'/>
+										</div>
+										<div class='form-group'>
+											<label>Telefone</label>
+											<input class='form-control mask-tel' name='telefone' placeholder='Seu telefone' required type='tel'/>
+										</div>
+										<div class='form-group'>
+											<label>Local de preferência</label>
+											<select class='form-control' name='local' required>
+												<option value=''>Selecione o local</option>
+												{% for i in [
+													'Hospital Unimed',
+                          'Hospital Dia e Pronto Atendimento SL',
+                          'Hospital Dia e Pronto Atendimento NH'
+												] %}
+													<option value='{{i}}'>{{i}}</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
+									<div class='col-12 col-lg-6'>
+
+									<div class='form-group'>
+											<label>Médico assistente</label>
+											<input class='form-control' name='medico_assistente' placeholder='' required />
+										</div>
+
+									<div class='form-group'>
+											<label>Acomodação</label>
+											<select class='form-control' name='local' required>
+												<option value=''>Selecione </option>
+												{% for i in [
+													'Privativo',
+													'Semi-privativo',
+												] %}
+													<option value='{{i}}'>{{i}}</option>
+												{% endfor %}
+											</select>
+										</div>
+
+										<div class='form-group'>
+											<label>Procedimento médico</label>
+											<textarea class='form-control' name='procedimento' placeholder='' required></textarea>
+										</div>
+										<div class='form-submit'>
+											<button class='btn btn-block btn-primary' data-loading='Enviando...' type='submit'>
+                      Solicitar Orçamento</button>
+										</div>
+										<div class='success-message'>
+											Sua mensagem foi enviada! Logo faremos contato com você!
+										</div>
+										<div class='error-message'>
+											Falha ao enviar sua mensagem
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</form>
+					</div>
+
+          {% include 'components/fale-conosco-footer.twig' %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

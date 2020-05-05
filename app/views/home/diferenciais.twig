@@ -1,0 +1,47 @@
+<section class='differentials' id='diferenciais'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-12 col-lg-3'></div>
+			<div class='col-12 col-lg-6'>
+				<div class='section-header'>
+					<header class=''>
+						<h1 class='title'>Diferenciais Unimed</h1>
+					</header>
+					<p>Nos seus mais de 40 anos de existência, a Unimed Vale do Sinos buscou oportunizar, por meio de seus planos de saúde, alguns diferenciais aos seus clientes.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class='row'>
+			{% for d in diferenciais %}
+				<div class='col-12 col-md-6 col-lg-4'>
+					<div class='differential'>
+						<header class='header'>
+							<a {% if d.nova_aba %} target='_blank' {% endif %} href='{{ mount_url(d.link) }}' title="{{d.titulo}}">
+								<figure class='figure'>
+									<img src='{{uploaded_image(d.imagem)}}' alt='{{d.titulo}}' title='{{d.titulo}}'/>
+								</figure>
+								<h2>{{d.titulo}}</h2>
+							</a>
+						</header>
+						{% if d.descricao %}
+							<div class='description'>
+								{{ d.descricao }}
+							</div>
+						{% endif %}
+						<footer>
+							<a {% if d.nova_aba %} target='_blank' {% endif %} href='{{ mount_url(d.link) }}' class='btn btn-secondary' title='Ver mais {{d.titulo}}'>
+								{% if d.btn_titulo %}
+									{{d.btn_titulo }}
+								{% else %}
+									Saiba mais
+								{% endif %}
+							</a>
+						</footer>
+					</div>
+				</div>
+			{% endfor %}
+
+		</div>
+	</div>
+</section>

@@ -1,0 +1,86 @@
+$font: 'Unimed Sans', 'Open Sans', Arial, sans-serif;
+$slab: 'Unimed Slab', 'Open Sans', Arial, sans-serif;
+
+$base-color: #008F58;
+$lightgreen: #B1D249;
+$title-color: #333333;
+$text-color: #909090;
+$body-color: $text-color;
+$bg-white: white;
+
+$blue:    $primary;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #ed1651;
+$red:     #ed1651;
+$orange:  #f47920;
+$yellow:  #ffc107;
+$green:   $base-color;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+$grey: #F4F4F4;
+$grey2: #EEEEEE;
+$grey3: #DDDDDD;
+
+$primary:       $base-color;
+$secondary:     $lightgreen;
+
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         #F4F4F4;
+$dark:          $title-color;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary
+);
+
+$font-family-sans-serif:      $font;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font;
+// stylelint-enable value-keyword-case
+
+$font-size-base:              16px !default; // Assumes the browser default, typically `16px`
+$font-size-lg:                $font-size-base * 1.25 !default;
+$font-size-sm:                $font-size-base * .875 !default;
+
+
+$body-bg:                   $white !default;
+$body-color:                $title-color !default;
+
+$fieldheight: 46px;
+
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: darken($primary, 10);
+$link-hover-decoration: none;
+
+
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+
+$btn-focus-box-shadow: none;
+
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
+);
+
+
+$shadow: 0 3px 10px rgba(0,0,0,.1);
+
+
+
+// vue-select
+$vs-state-active-bg: $primary;

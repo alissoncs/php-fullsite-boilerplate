@@ -1,0 +1,87 @@
+@mixin clearbutton {
+  background: none;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+  cursor: pointer;
+  &:focus,
+  &:active {
+    outline: 0 none;
+  }
+}
+
+@mixin fade {
+  transition: 0.2s all ease;
+}
+
+@mixin imagefit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 200%;
+  max-height: 200%;
+  height: auto;
+  width: auto;
+  min-height: 101%;
+  min-width: 101%;
+}
+
+@mixin imagemask {
+  content: '';
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  @include fade;
+  opacity: 0.65;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+@mixin icon($file, $size: 10px) {
+  content: '';
+  background: url('../images/' + $file) center center no-repeat;
+  background-size: 100% auto;
+  width: $size;
+  height: $size;
+  vertical-align: middle;
+  font-size: 0;
+  display: inline-block;
+}
+
+@mixin arrowdown($size: 13px) {
+  width: $size;
+  height: $size;
+  border-right: 2px solid #333;
+  border-bottom: 2px solid #333;
+  transform: rotate(45deg);
+  margin: 0 12px;
+  content: '';
+  display: inline-block;
+}
+
+
+@function rem($size) {
+  @return ($size / 16) * 1em;
+}
+
+@mixin bg-contrast($color, $high) {
+  background-color: $color;
+  body.high-contrast & {
+    background-color: $high;
+  }
+}
+
+@mixin text-contrast($color, $high) {
+  color: $color;
+  body.high-contrast & {
+    color: $high;
+  }
+}

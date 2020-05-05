@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8.088" height="8.088" viewBox="0 0 8.088 8.088">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="8.088" height="8.088" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="close" clip-path="url(#clip-path)">
+    <path id="Caminho_92" data-name="Caminho 92" d="M15.588,8.316,14.771,7.5l-3.227,3.227L8.316,7.5,7.5,8.316l3.227,3.227L7.5,14.771l.816.816,3.227-3.227,3.227,3.227.816-.816L12.36,11.544Z" transform="translate(-7.5 -7.5)" fill="#fff"/>
+  </g>
+</svg>

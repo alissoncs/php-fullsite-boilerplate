@@ -1,0 +1,46 @@
+<div class='sell-points'>
+    <header class='sell-points--header'>
+        <h3 class='sell-points--title'>Pontos de venda:</h3>
+    </header>
+    <div class='row'>
+        {% if pontos_venda %}
+        {% else %}
+        <p>Nenhum ponto de venda disponível</p>
+        {% endif %}
+
+        {% for p in pontos_venda %}
+            <div class='col-12 col-lg-6'>
+                <div class='point'>
+                    <h2 class='point--title'>{{ p.titulo }}</h2>
+                    <div class='point--item address'>
+                        <div class='point--icon'></div>
+                        <div class='point--item-content'>
+                            <p class='line-1'>{{p.endereco_linha_1}}</p>
+                            <p>{{p.endereco_linha_2}}</p>
+                        </div>
+                    </div>
+                    {% if p.telefone %}
+                    <div class='point--item phone'>
+                        <div class='point--icon'></div>
+                        <div class='point--item-content'>
+                            <p>{{p.telefone}}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if p.horario_atendimento %}
+                    <div class='point--item timezone'>
+                        <div class='point--icon'></div>
+                        <div class='point--item-content'>
+                            <p>{{p.horario_atendimento}}</p>
+                            {% if p.observacao %}
+                            <p class='obs'><small>Obs.: {{p.observacao}}</small></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{% if post %}
+{% set b = post %}
+{% endif %}
+
+<article class='post' id='post-{{post.id}}'>
+	<div class='post-thumb-wrapper'>
+		<a class='post-link' title='{{post.titulo}}' href='{{base_url()}}/noticias/{{post.categoria.slug}}/{{post.slug}}'>
+			{% if post.thumbnail %}
+				<figure class='posts-thumbnail'>
+					<img src='{{ uploaded_image(post.thumbnail) }}' alt='' title=''/>
+				</figure>
+			{% else %}
+				<figure aria-label='Sem imagem' class='posts-thumbnail empty'>
+					<span title='Sem imagem'></span>
+				</figure>
+			{% endif %}
+		</a>
+
+		<div class='post-engageinfo'>
+			{% include 'components/blog-likes-shares.twig' with { post : post } %}
+		</div>
+	</div>
+
+	<div class='post-content'>
+		<h2 class='post-title'>
+			<a class='post-link' title='{{post.titulo}}' href='{{base_url()}}/noticias/{{post.categoria.slug}}/{{post.slug}}'>
+				{{post.titulo}}
+			</a>
+		</h2>
+		{% if post.descricao %}
+			<div class='resume'>
+				{{ post.descricao }}
+			</div>
+		{% endif %}
+		<div class='post-meta'>
+			{% if post.categoria.titulo %}
+				<a href='{{base_url()}}/noticias/{{post.categoria.slug}}' title='Ver categoria {{post.categoria.titulo}}' class='category'>
+					{{post.categoria.titulo}}
+				</a>
+			{% endif %}
+			<span class='date'>
+				{{human_date(post.created_at)|raw}}
+			</span>
+		</div>
+	</div>
+
+</article>

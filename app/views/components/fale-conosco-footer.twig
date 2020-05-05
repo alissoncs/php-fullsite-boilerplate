@@ -1,0 +1,81 @@
+<br/>
+
+<h3 class='h5'>Ou por telefone:</h3>
+
+<div class='contact-info-footer'>
+	<div class='row'>
+
+		<div class='col-12 col-md-4'>
+			{% if config.TELEFONE_SOS_0800 %}
+				<div class='info'>
+					<i class='icon-phone'></i>
+					<div class='content'>
+						<p>Atendimento 24h
+						</p>
+						<p>
+							<big>
+								{{config.TELEFONE_0800}}
+							</big>
+						</p>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+
+
+		<div class='col-12 col-md-4'>
+
+			{% if config.WHATSAPP_INFOS %}
+				<div class='info'>
+					<i class='icon-whatsapp'></i>
+					<div class='content'>
+						<p>WhatsApp informaçōes</p>
+						<p>
+							<big>
+								{{config.WHATSAPP_INFOS}}
+							</big>
+						</p>
+						<p>
+							<small>
+								{% if config.WHATSAPP_INFOS_HORARIOS %}
+									{{config.WHATSAPP_INFOS_HORARIOS}}
+									{% else %}de segunda a sexta, das 8h às 18h
+								{% endif %}
+							</small>
+						</p>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+
+		<div class='col-12 col-md-4'></div>
+
+
+		<div class='col-12 col-md-4'>
+
+			{% if config.WHATSAPP_VENDAS_PLANOS %}
+				<div class='info'>
+					<i class='icon-whatsapp'></i>
+					<div class='content'>
+						<p>WhatsApp vendas de planos</p>
+						<p>
+							<big>
+								{{config.WHATSAPP_VENDAS_PLANOS}}
+							</big>
+						</p>
+						<p>
+							<small>
+								{% if config.WHATSAPP_VENDAS_PLANOS_HORARIOS %}
+									{{config.WHATSAPP_VENDAS_PLANOS_HORARIOS}}
+									{% else %}de segunda a sexta, das 8h às 18h
+								{% endif %}
+							</small>
+						</p>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+
+	</div>
+
+</div>

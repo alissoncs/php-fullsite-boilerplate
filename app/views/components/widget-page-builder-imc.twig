@@ -1,0 +1,32 @@
+<h4 class='h4'>Calculadora de IMC</h4>
+
+<div class='imc-box'>
+    <p>Calculadora do Índice de Massa Corporal (IMC). Faça o cálculo e descubra qual a sua necessidade diária de calorias e o que fazer para manter o peso</p>
+
+    <script id="imc-template" type="text/x-template">
+        <div class='imc-template'>
+            <div class='row'>
+                <div class='col-12 col-lg-9'>
+                    <div class='form-group'>
+                        <input class='form-control' name='peso' placeholder='Peso (kg)' required type='number' v-model='peso'/>
+                    </div>
+                    <div class='form-group'>
+                        <input class='form-control' name='altura' placeholder='Altura (cm)' required type='number' v-model='altura'/>
+                    </div>
+                    <div class='form-submit'>
+                        <button class='btn btn-block btn-primary' v-on:click='submitForm' type='submit' v-bind:disabled='calculando'>
+                            <span v-if='calculando'>Calculando...</span>
+                            <span v-if='!calculando'>Calcular</span>
+                        </button>
+                    </div>
+                    <div v-if='resultado' class='result-output' v-bind:class='{ "danger": color == "danger" }'>
+                        <big>${resultado}</big>
+                        <span class='type'>${type}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <imc></imc>
+
+</div>

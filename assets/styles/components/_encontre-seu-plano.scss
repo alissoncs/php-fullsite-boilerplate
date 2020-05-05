@@ -1,0 +1,446 @@
+
+
+.encontre-seu-plano {
+  padding: 3rem 0;
+
+  .modal {
+    background: rgba(0,0,0,.3);
+    background-size: cover;
+    .modal-content {
+      border-radius: 0;
+      padding: 1.3rem;
+    }
+    .modal-header {
+      padding: 1rem;
+    }
+    .modal-title {
+      font-size: rem(21);
+      padding: 1rem 1rem;
+    }
+    .modal-header {
+      border: 0;
+    }
+    .close {
+      // padding: 10px 20px;
+      font-size: rem(25);
+      color: $text-color;
+    }
+    .btn.btn-lg {
+      font-size: rem(20);
+      padding: 18px;
+    }
+    .modal-body {
+      padding: 1rem 2rem 3rem;
+      // padding: 2rem;
+    }
+  }
+
+  .container {
+    max-width: 1400px;
+  }
+
+  .groups {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : flex-start;
+
+    >.labels {
+
+      font-family: $slab;
+      padding: 30px 20px 30px 10px;
+
+      display: none;
+
+      @include media-breakpoint-up('lg') {
+        // max-width: 240px;
+        display: block;
+      }
+
+      >p {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .description {
+    @include media-breakpoint-up('lg') {
+      min-height: 110px;
+      overflow: hidden;
+    }
+  }
+
+  .price {
+    @include media-breakpoint-up('lg') {
+      min-height: 80px;
+    }
+  }
+
+  .action {
+    margin-bottom: 10px;
+  }
+
+  .benefits {
+    padding: 6px;
+    @include media-breakpoint-up('lg') {
+      // min-height: 50px;
+    }
+  }
+
+
+  &.loaded {
+    .plan-groups {
+      opacity: 1;
+    }
+  }
+  .plan-groups {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    // display: flex;
+    @include media-breakpoint-up('lg') {
+      align-items: flex-start;
+      display    : flex;
+      width: 100%;
+
+    }
+  }
+
+  .plan-primary-group {
+    position: relative;
+
+    > .flag {
+      position: absolute;
+      display: block;
+      top: -22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      font-weight: bold;
+      font-size: rem(11);
+      background: $primary;
+      color: white;
+      text-transform: uppercase;
+      width: 100%;
+      margin: 0 0 0 -6px;
+      display: none;
+      @include media-breakpoint-up('lg') {
+        display: block;
+      }
+
+      &:after {
+        content:' ';
+        position: absolute;
+        bottom: 0;
+        left: 100%;
+        width: 12px;
+        height: 100%;
+        background: $primary;
+        display: inline-block;
+      }
+      &:before {
+        width: 0;
+        content: '';
+        transform: rotate(90deg);
+        z-index: -1;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 5px 0 5px;
+        border-color: darken($primary, 10) transparent transparent transparent;
+        position: absolute;
+        bottom: -3px;
+        left: -1px;
+        display: inline-block;
+      }
+
+    }
+
+    @include media-breakpoint-up('lg') {
+      display    : flex;
+      background : $grey2;
+      align-items: stretch;
+    }
+
+    .plan-wrapper {
+      background: $grey2;
+    }
+  }
+
+  .plan-wrapper {
+    // width: 20%;
+    padding : 24px 18px;
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up('lg') {
+      margin-bottom: 1rem;
+      max-width: 240px;
+      // width: 20%;
+    }
+
+    > .flag {
+      display: block;
+      // height: padd;
+      // line-height: 22px;
+      text-align: center;
+      font-weight: bold;
+      font-size: rem(11);
+      padding: 4px;
+      margin-bottom: 2rem;
+      background: $primary;
+      color: white;
+      text-transform: uppercase;
+      width: 100%;
+      @include media-breakpoint-up('lg') {
+        display: none;
+      }
+    }
+
+    .title {
+      font-weight: normal;
+      font-size  : 1.6em;
+      min-height: 30px;
+      line-height: 1.1em;
+      // background: red;
+    }
+
+    .description {
+      font-size  : 12px;
+      line-height: 1.7em;
+    }
+
+    .benefits {
+      ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        li {
+          padding: 0;
+          margin: 0 0 4px 0;
+          line-height: 1.1em;
+        }
+      }
+    }
+
+    .price {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      @include media-breakpoint-up('lg') {
+        margin-top: 0;
+        margin-bottom: 22px;
+      }
+      .label {
+        font-size: rem(11);
+        color: #000;
+        margin: 0;
+        min-height: 24px;
+      }
+      big {
+        line-height: 1.3em;
+        font-size: rem(33);
+        font-weight: bold;
+        color: $primary;
+        // white-space: nowrap;
+        &.price-inf {
+          font-size: rem(18);
+        }
+        small {
+          vertical-align: baseline;
+          font-size: .5em;
+          margin-left: 3px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .whatsapp-call {
+
+      padding: 12px;
+      line-height: 1.1rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      justify-content: flex-start;
+      margin: 1rem 0 .3rem;
+
+      i {
+        &:before {
+          margin-right: 10px;
+          margin-top: 0;
+          @include icon('whatsapp-white.svg', 22px);
+        }
+      }
+      strong {
+        text-transform: uppercase;
+        line-height: 1;
+        font-weight: bold;
+        display: block;
+        font-size: 1.1em;
+      }
+      small {
+        text-transform: none;
+        display: block;
+      }
+    }
+
+
+    .internal {
+      color: $title-color;
+      padding: 5px;
+      font-size: rem(12);
+      font-weight: bold;
+    }
+
+    .benefits {
+      font-size: rem(12);
+      color: $title-color;
+      margin-bottom: 0;
+
+      &-content {
+        // display: none;
+        word-wrap: normal;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
+
+        p {
+          line-height: 1.2em;
+        }
+
+        @include media-breakpoint-up('lg') {
+          padding-bottom: 14px;
+          max-height: auto;
+          display: block;
+        }
+
+        @include media-breakpoint-up('lg') {
+          &.has-hidden-content {
+            user-select: none;
+            cursor: pointer;
+            padding-right: 22px;
+            p:nth-child(n+3) {
+              opacity: 0;
+            }
+            &:before {
+            }
+            &:after {
+              @include arrowdown(10px);
+              z-index: 2;
+              cursor: pointer;
+              position: absolute;
+              bottom: 4px;
+              right: -10px;
+            }
+            &.show-hidden-content {
+              max-height: none;
+              // transi
+              &:after {
+                transform: rotate(-135deg);
+              }
+              p:nth-child(n+3) {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+
+      &-title {
+        background: none;
+        padding: 12px 0;
+        font-size: 2em;
+        width: 100%;
+        margin-bottom: 2rem;
+        border: 0;
+        background: none;
+        text-align: left;
+        color: $title-color;
+        cursor: pointer;
+        position: relative;
+        border-bottom: 1px solid $title-color;
+        position: relative;
+        &:after {
+          @include arrowdown(12px);
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 12px;
+        }
+        @include media-breakpoint-up('lg') {
+          display: none;
+        }
+      }
+      p {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+}
+
+
+
+.table-carencias {
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+  .table-responsive {
+    overflow: auto;
+    max-width: 100%;
+    .table {
+      min-width: 720px;
+    }
+  }
+  h2 {
+    font-size: 1.4em;
+    font-weight: normal;
+    margin: 0;
+    font-family: $slab;
+  }
+  .table {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    td,
+    th {
+      font-weight: normal;
+      padding: 12px 40px;
+      border-right: 1px solid $grey2;
+
+      &.marked {
+        background: $grey2;
+      }
+
+    }
+    th {
+      font-family: $slab;
+      color: $title-color;
+      font-size: 1.2em;
+    }
+    thead {
+      th {
+        padding-bottom: 32px;
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+
+    tbody {
+      td {
+        color: $title-color;
+        font-size: rem(13);
+        padding-top: 6px;
+        padding-bottom: 12px;
+      }
+      th {
+        padding-top: 6px;
+        padding-bottom: 12px;
+        padding-left: 0;
+        color: $title-color;
+        max-width: 200px;
+        font-size: rem(13);
+        font-family: inherit;
+      }
+    }
+
+  }
+}

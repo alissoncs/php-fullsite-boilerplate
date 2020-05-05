@@ -1,0 +1,163 @@
+{% set page_title = 'Fale conosco' %}
+
+{% set breadlinks = [
+    { titulo: 'Fale Conosco', url: '/fale-conosco' },
+
+    { titulo: 'Visita Institucional', url: '/fale-conosco/visita-institucional' },
+] %}
+{% extends 'layout/wrapper.twig' %}
+{#
+
+Novo Formulário: Visita Institucional
+
+"Para solicitar a visita, você deve inscrever-se preenchendo o formulário abaixo e fornecer todos os dados solicitados. A confirmação da visita se dará a partir de contato via e-mail pela área de Estratégia, Qualidade e Processos da Unimed Vale do Sinos, responsável pelo programa.
+A Unimed Vale do Sinos recebe visitas institucionais com o objetivo de proporcionar este aprendizado para outras empresas ou instituições que tem interesse em conhecer as nossas práticas. Não são permitidas visitas institucionais para fins de uso da informação em trabalhos acadêmicos.
+
+As inscrições são limitadas para que possamos proporcionar um atendimento qualificado e personalizado aos visitantes.
+Outras informações podem ser obtidas com a área de Estratégia, Qualidade e Processos, por meio do telefone: (51) 3584-1835."
+Para o Formulário:
+Dados do Solicitante:
+Nome: OK
+E-mail: OK
+Telefone: OK
+Cargo/Formação:
+Nome da Instituição Representada:
+Dados da Visita:
+Área/Processo em que solicita o benchmarking:
+Objetivo do benchmarking:
+Dados da Solicitação:
+Incluir informação: "Grupo que participará da visita (Máximo 5) - Digite o nome e cargo dos participantes"
+Incluir observações: "Caso o solicitante também participe da visita, deve ser incluso na lista"
+"Solicitações de visitas técnicas com mais de 5 participantes, deve ser informado nos dados da solicitação"
+Marcar todos os campos como obrigatório.
+
+#}
+
+{% block content %}
+	{% include 'layout/breadcrumb.twig' %}
+
+	<div class='fale-conosco single-page'>
+		<div class='container'>
+			<div class='row'>
+				<div class='col-lg-10'>
+					<header class='single-page-header'>
+						<h1 class='title'>Visita Institucional</h1>
+						<div class='description'>
+							<p>Para solicitar a visita, você deve inscrever-se preenchendo o formulário abaixo e fornecer todos os dados solicitados. A confirmação da visita se dará a partir de contato via e-mail pela área de Estratégia, Qualidade e Processos da Unimed Vale do Sinos, responsável pelo programa.
+							</p>
+							<p>
+								A Unimed Vale do Sinos recebe visitas institucionais com o objetivo de proporcionar este aprendizado para outras empresas ou instituições que tem interesse em conhecer as nossas práticas. Não são permitidas visitas institucionais para fins de uso da informação em trabalhos acadêmicos.
+							</p>
+							<p>
+								As inscrições são limitadas para que possamos proporcionar um atendimento qualificado e personalizado aos visitantes.
+							</p>
+							<p>Outras informações podem ser obtidas com a área de Estratégia, Qualidade e Processos, por meio do telefone: (51) 3584-1835.</p>
+							<p></p>
+						</div>
+					</header>
+					<div class='content'>
+						<div class='form-element visible'>
+
+							<form class='' novalidate='true' autocomplete='off' spellcheck='false' action='{{base_url()}}/fale-conosco/visita-institucional/submit' method='post' autocomplete='off'>
+
+								<div class='row'>
+									<div class='col-12 col-lg-12'>
+										<div class='form-element-title'>
+											<h2 class='h3'>Formulário</h2>
+										</div>
+									</div>
+									<div
+										class='col-12 col-lg-6'>
+										{# <div class='form-group'>
+																					<label>Selecione sua Unimed</label>
+																					<select class='form-control' name='local' required>
+																						<option value=''>Selecione</option>
+																						{% for i in [
+																							'Unimed Vale dos Sinos',
+																							'Outra Unimed',
+																						] %}
+																							<option value='{{i}}'>{{i}}</option>
+																						{% endfor %}
+																					</select>
+																				</div> #}
+										<div class='form-group'>
+											<label>Nome *</label>
+											<input class='form-control' name='nome' placeholder='Seu nome' required type='text'/>
+										</div>
+										<div class='form-group'>
+											<label>E-mail *</label>
+											<input class='form-control' name='email' placeholder='Seu e-mail' required type='email'/>
+										</div>
+										<div class='form-group'>
+											<label>Telefone *</label>
+											<input class='form-control mask-tel' name='telefone' placeholder='Seu telefone' required type='tel'/>
+										</div>
+										<div class='form-group'>
+											<label>Cidade *</label>
+											<input class='form-control' name='cidade' placeholder='Seu cidade' required type='text'/>
+										</div>
+										<div class='form-group'>
+											<label>Cargo/Formação: *</label>
+											<input class='form-control' name='cargo_formacao' placeholder='Cargo/Formação' required type='text'/>
+										</div>
+									</div>
+									<div class='col-12 col-lg-6'>
+
+										<div class='form-group'>
+											<label>Dados da Visita: *</label>
+											<input class='form-control' name='dados_visita' placeholder='' required />
+										</div>
+										<div class='form-group'>
+											<label>Área/Processo em que solicita o benchmarking: *</label>
+											<input class='form-control' name='area_processo' placeholder='' required/>
+										</div>
+										<div class='form-group'>
+											<label>Objetivo do benchmarking *</label>
+											<input class='form-control' name='objetivo_benchmarking' placeholder='' required/>
+
+										</div>
+										<div class='form-group'>
+											<label>Dados da Solicitação</label>
+											<textarea class='form-control' name='dados_solicitacao' placeholder='' required></textarea>
+                      <p>
+                      <small>Grupo que participará da visita (Máximo 5) - Digite o nome e cargo dos participantes
+                      </small>
+                      </p>
+                      <p>
+                      <small>
+                      Caso o solicitante também participe da visita, deve ser incluso na lista
+                      </small>
+                      </p>
+										</div>
+
+										<div class='form-submit'>
+											<button class='btn btn-block btn-primary' data-loading='Enviando...' type='submit'>
+												Enviar mensagem</button>
+										</div>
+										<div class='success-message'>
+											Sua mensagem foi enviada! Logo faremos contato com você!
+										</div>
+										<div class='error-message'>
+											Falha ao enviar sua mensagem
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</form>
+						<footer class='footer-message'>Como alternativa, você também poderá entrar em contato
+							<br/>pelo e-mail
+							<strong>{{config.EMAIL_FORM_ORIENTACAO_FARMACEUTICA}}</strong>
+							ou pelo telefone
+							<strong>(51) 3584-3806</strong>
+						</footer>
+					</div>
+
+					{% include 'components/fale-conosco-footer.twig' %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

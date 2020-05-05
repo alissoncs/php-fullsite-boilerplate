@@ -1,0 +1,123 @@
+<div class='row'>
+
+	<div class='col-12 col-md-6'>
+
+		{% if config.ENDERECO %}
+			<div class='info'>
+				<i class='icon-pin'></i>
+				<div class='content'>
+					<address class='' data-toggle='modal' data-target='#modal-endereco-unimed'>
+						<p class='line1'>{{config.ENDERECO}}
+							-
+							{{config.ENDERECO_BAIRRO}}</p>
+						<p class='line2'>{{config.ENDERECO_CIDADE}}
+							-
+							{{config.ENDERECO_ESTADO}}
+							| CEP:
+							{{config.ENDERECO_CEP}}</p>
+					</address>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+
+	<div class='col-12 col-md-6'>
+
+		{% if config.WHATSAPP_INFOS %}
+			<div class='info'>
+				<i class='icon-whatsapp'></i>
+				<div class='content'>
+					<p>WhatsApp informaçōes</p>
+					<p>
+						<big>
+							<a target='_blank' href='https://api.whatsapp.com/send?phone=55{{numbers_only(config.WHATSAPP_INFOS)}}' title='Iniciar uma conversa'>
+								{{config.WHATSAPP_INFOS}}
+							</a>
+						</big>
+					</p>
+					<p>
+						<small>
+							{% if config.WHATSAPP_INFOS_HORARIOS %}
+								{{config.WHATSAPP_INFOS_HORARIOS}}
+								{% else %}de segunda a sexta, das 8h às 18h
+							{% endif %}
+						</small>
+					</p>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+</div>
+
+<div class='row'>
+	<div class='col-12 col-md-6'>
+		{% if config.TELEFONE_ATENDIMENTO_24H %}
+			<div class='info'>
+				<i class='icon-phone'></i>
+				<div class='content'>
+					<p>Atendimento 24h
+					</p>
+					<p>
+						<big>
+							<a href='tel:{{numbers_only(config.TELEFONE_ATENDIMENTO_24H)}}' title='Iniciar uma ligação'>
+								{{config.TELEFONE_ATENDIMENTO_24H}}
+							</a>
+						</big>
+					</p>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+	<div class='col-12 col-md-6'>
+
+		{% if config.WHATSAPP_VENDAS_PLANOS %}
+			<div class='info'>
+				<i class='icon-whatsapp'></i>
+				<div class='content'>
+					<p>WhatsApp vendas de planos</p>
+					<p>
+						<big>
+							<a target='_blank' href='https://api.whatsapp.com/send?phone=55{{numbers_only(config.WHATSAPP_VENDAS_PLANOS)}}' title='Iniciar uma conversa'>
+								{{config.WHATSAPP_VENDAS_PLANOS}}
+							</a>
+						</big>
+					</p>
+					<p>
+						<small>
+							{% if config.WHATSAPP_VENDAS_PLANOS_HORARIOS %}
+								{{config.WHATSAPP_VENDAS_PLANOS_HORARIOS}}
+								{% else %}de segunda a sexta, das 8h às 18h
+							{% endif %}
+						</small>
+					</p>
+				</div>
+			</div>
+		{% endif %}
+	</div>
+
+</div>
+
+
+<div class='widget widget-localizacao'>
+  <div class="modal modal-maps fade" id="modal-endereco-unimed" tabindex="-1" role="dialog" aria-labelledby="modal-endereco-unimed" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">
+          Central de Vendas Unimed Vale do Sinos
+          </h3>
+          <span class='modal-primary-title'>Google Maps</span>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2450.860273134668!2d-51.134484302588874!3d-29.689624663054914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95194377a3d77c95%3A0x6383b478122da77b!2sCentral%20de%20Vendas%20Unimed%20Vale%20do%20Sinos%20-%20Novo%20Hamburgo!5e0!3m2!1spt-BR!2sbr!4v1582091233154!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

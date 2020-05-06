@@ -1,43 +1,20 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Site Name</title>
+  {% include 'layout/head.twig' %}
+</head>
+<body>
 
-    <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-P2496X2');</script>
-        <!-- End Google Tag Manager -->
+  {% include 'layout/header.twig' %}
+  <main>
+  {% block content %}
+  {% endblock %}
+  </main>
+  {% include 'layout/footer.twig' %}
+  {% include 'layout/append-body.twig' %}
 
-      {% include 'layout/head.twig' %}
-    </head>
-
-    <body class='{{ body_class }}' id='{{ body_id }}'>
-        
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2496X2"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v4.0"></script>
-
-        <div id='app'>
-            {% block prepend_body %}{% endblock %}
-            {% include 'components/top-acessibilidade.twig' %}
-            {% include 'layout/header.twig' %}
-            <div class='main-wrapper'>
-                <main id='main'>
-                  {% block content %}{% endblock %}
-                </main>
-            </div>
-            {% include 'layout/footer.twig' %}
-        </div>
-        {% include 'layout/append-body.twig' %}
-
-
-        {% block append_body %}{% endblock %}
-
-    </body>
+</body>
 </html>

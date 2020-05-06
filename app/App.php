@@ -94,7 +94,6 @@ class App extends Application
 
 
     $container['service.upload'] = new UploadService();
-    $container['service.api_medicos'] = new ApiMedicosService($container);
 
     $errorHandler = new ErrorHandler();
     $errorHandler->setup($container);
@@ -135,11 +134,6 @@ class App extends Application
         'SE' => 'Sergipe',
         'TO' => 'Tocantins',
       ]);
-      $view->getEnvironment()->addGlobal('acesso_rapido', AcessoRapido::menu());
-      $view->getEnvironment()->addGlobal('menu_planos', PlanoCategoria::menu());
-      $view->getEnvironment()->addGlobal('menu_blog_categorias', PostCategoria::menuLimit5());
-      $view->getEnvironment()->addGlobal('menu_header', ModuloPagina::menuHeader());
-      $view->getEnvironment()->addGlobal('menu_footer', ModuloPagina::menuFooter());
       $view->addExtension(new TwigExtension($c->get('router'), $uri));
       return $view;
     };

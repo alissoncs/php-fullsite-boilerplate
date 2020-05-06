@@ -1,12 +1,8 @@
 <?php
 namespace App\Website;
 
-use Psr\Container\ContainerInterface;
-
-abstract class BaseWebsiteController
-{
-  protected $container;
-  public function __construct(ContainerInterface $container)
+class BaseWebsiteController {
+  public function __construct($container)
   {
     $this->container = $container;
   }

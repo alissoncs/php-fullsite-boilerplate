@@ -1,32 +1,4 @@
 <script type='text/javascript' src='{{ base_url() }}/build/scripts/main.min.js?asset-version={{config.CACHE_ID}}'></script>
-
-
-{% if config.SCRIPT_FACEBOOK_PIXEL %}
-	{{config.SCRIPT_FACEBOOK_PIXEL|raw}}
-{% endif %}
-
-{% if config.SCRIPT_TAG_MANAGER %}
-	{{config.SCRIPT_TAG_MANAGER|raw}}
-{% endif %}
-
 {% if config.SCRIPT_EXTRA %}
 	{{config.SCRIPT_EXTRA|raw}}
 {% endif %}
-
-{% if config.ID_GOOGLE_ANALYTICS %}
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-_gaq.push(['_setAccount', '{{ config.ID_GOOGLE_ANALYTICS }}']);
-_gaq.push(['_trackPageview']);
-(function () {
-var ga = document.createElement('script');
-ga.type = 'text/javascript';
-ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : '//www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(ga, s);
-})();
-	</script>
-{% endif %}
-
-{% include 'layout/chatbot.twig' %}

@@ -1,7 +1,0 @@
-{% if options.image %}
-<figure class='figure'>
-{% if options.link %}<a href='{{options.link}}'>{% endif %}
-    <img src='{{uploaded_image(options.image)}}' alt='{{options.alt}}' title='{{options.alt}}' />
-{% if options.link %}</a>{% endif %}
-</figure>
-{% endif %}

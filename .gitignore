@@ -13,3 +13,5 @@ public/upload/thumbnail/*
 /logs
 .env
 public_external
+
+.phpunit.result.cache

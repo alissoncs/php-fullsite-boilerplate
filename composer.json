@@ -25,5 +25,9 @@
   },
   "repositories": {
     "packagist": { "url": "https://packagist.org", "type": "composer" }
+  },
+  "scripts": {
+    "test": "php vendor/bin/phpunit --verbose",
+    "migrate": "php vendor/bin/phinx migrate"
   }
 }

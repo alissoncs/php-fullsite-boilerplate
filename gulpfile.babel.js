@@ -6,6 +6,7 @@ import buffer from 'vinyl-buffer';
 import sourcemaps from 'gulp-sourcemaps';
 import log from 'gulplog';
 import autoprefixer from 'autoprefixer';
+import spritesmith from 'gulp.spritesmith';
 import postcss from 'gulp-postcss';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
@@ -34,7 +35,11 @@ const paths = {
   },
   images: {
     src: 'assets/images/**/*.{jpg,jpeg,png,svg}',
-    dest: 'public/build/images/',
+    dest: 'public/build/',
+  },
+  sprite: {
+    src: 'assets/sprite/**/*.{jpg,jpeg,png,svg}',
+    dest: 'public/build/',
   },
 };
 
@@ -52,6 +57,43 @@ export function connect() {
     port: 5000,
     livereload: true,
   });
+}
+
+
+//                  _ _
+//   ___ _ __  _ __(_) |_ ___
+//  / __| '_ \| '__| | __/ _ \
+//  \__ \ |_) | |  | | ||  __/
+//  |___/ .__/|_|  |_|\__\___|
+//      |_|
+
+
+export function sprites() {
+  var spriteData = gulp.src('./sprites/*.png').pipe(spritesmith({
+    imgName: 'sprite.png',
+    // cssName: 'sprite.css'
+    cssName: `_sprite.scss`,
+    padding: 10,
+    cssTemplate: './assets/sprite.handlebars',
+  }));
+
+  var css = spriteData.css
+    .pipe(rename('_sprite.scss'))
+    .pipe(gulp.dest('./assets/styles'));
+
+  var img = spriteData.img
+    .pipe(buffer())
+    .pipe(gulp.dest('./build'))
+    // .pipe(connect.stream())
+    .pipe(gulpConnect.reload());
+
+  return merge(img, css);
+}
+
+export function spriteClean() {
+  return del([
+    // paths.sprite.dest
+  ])
 }
 
 /*
@@ -104,25 +146,8 @@ export function stylesContrast() {
 export function scripts() {
 
   return gulp.src([
-    'plugins/jquery.js',
-    'plugins/bootstrap.js',
-    'plugins/slick.js',
-    'plugins/select2.js',
-    'plugins/validate.js',
-    'plugins/validate-pt-br.js',
-    'plugins/mask.js',
-    // 'plugins/slick.js',
-
-    'components/functions.js',
-    'components/header.js',
-    'components/home.js',
-    'components/search.js',
-    'components/encontre-seu-plano.js',
-    'components/encontre-um-medico.js',
-    'components/criacao-usuario.js',
-    'components/fale-conosco.js',
-    'components/blog.js',
-    'components/acessibilidade.js',
+    'plugins/*.js',
+    'components/*.js',
   ].map(d => `./assets/scripts/${d}`))
     .pipe(sourcemaps.init())
     .pipe(concat('main.min.js'))
@@ -155,15 +180,17 @@ export function views() {
  * You could even use `export as` to rename exported tasks
  */
 function watchFiles() {
-  gulp.series(clean, gulp.parallel(scripts, stylesContrast, fonts, styles, images, connect))();
+  gulp.series(clean, gulp.parallel(sprites, images, scripts, stylesContrast, fonts, styles, connect))();
   gulp.watch(paths.scripts.src, scripts);
   gulp.watch(paths.styles.src, gulp.parallel(styles, stylesContrast));
   gulp.watch(paths.images.src, images);
-
+  gulp.watch(paths.sprite.src, gulp.series([spriteClean, sprites]))
 }
+
+gulp.task('sprites', sprites);
 
 export { watchFiles as watch };
 
-export const build = gulp.series(clean, gulp.parallel(styles, stylesContrast, scripts, images, fonts));
+export const build = gulp.series(clean, gulp.parallel(sprites, images, styles, stylesContrast, scripts, fonts));
 
 export default build;

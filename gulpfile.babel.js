@@ -7,6 +7,7 @@ import sourcemaps from 'gulp-sourcemaps';
 import log from 'gulplog';
 import autoprefixer from 'autoprefixer';
 import spritesmith from 'gulp.spritesmith';
+import merge from 'merge-stream';
 import postcss from 'gulp-postcss';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename';
@@ -69,7 +70,7 @@ export function connect() {
 
 
 export function sprites() {
-  var spriteData = gulp.src('./sprites/*.png').pipe(spritesmith({
+  var spriteData = gulp.src('./assets/sprite/**/*.png').pipe(spritesmith({
     imgName: 'sprite.png',
     // cssName: 'sprite.css'
     cssName: `_sprite.scss`,

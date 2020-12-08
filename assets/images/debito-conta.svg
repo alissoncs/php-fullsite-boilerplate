@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
-  <g id="credit-card" transform="translate(0 -54.821)">
-    <g id="Grupo_51" data-name="Grupo 51" transform="translate(0 54.821)">
-      <path id="Caminho_79" data-name="Caminho 79" d="M29.265,55.555a2.407,2.407,0,0,0-1.765-.734H2.5a2.408,2.408,0,0,0-1.766.734A2.407,2.407,0,0,0,0,57.321v19a2.407,2.407,0,0,0,.734,1.766,2.408,2.408,0,0,0,1.766.734h25a2.508,2.508,0,0,0,2.5-2.5v-19A2.408,2.408,0,0,0,29.265,55.555ZM28,76.321a.506.506,0,0,1-.5.5H2.5a.507.507,0,0,1-.5-.5v-9.5H28v9.5Zm0-15.5H2v-3.5a.507.507,0,0,1,.5-.5h25a.506.506,0,0,1,.5.5v3.5Z" transform="translate(0 -54.821)" fill="#333"/>
-      <rect id="Retângulo_71" data-name="Retângulo 71" width="4" height="2" transform="translate(4 18)" fill="#333"/>
-      <rect id="Retângulo_72" data-name="Retângulo 72" width="6" height="2" transform="translate(10 18)" fill="#333"/>
-    </g>
-  </g>
-</svg>

@@ -25,47 +25,9 @@
 @import 'node_modules/bootstrap/scss/utilities/float';
 
 @import 'node_modules/bootstrap/scss/modal';
+@import '_sprite';
 
-@import 'node_modules/select2/src/scss/core.scss';
-
-// vue select
-@import 'node_modules/vue-select/src/scss/vue-select.scss';
 
 @import 'components/fonts';
 @import 'components/slick';
 @import 'components/select2';
-
-@import 'components/top';
-@import 'components/base';
-
-@import 'components/header';
-@import 'components/navigation';
-@import 'components/footer';
-@import 'components/home';
-
-@import 'components/page';
-//@at-root
-@import 'components/acesso-rapido';
-@import 'components/banner-slider';
-@import 'components/posts';
-
-@import 'components/blog';
-
-// pages
-@import 'components/breadcrumb';
-@import 'components/planos';
-@import 'components/medicos';
-@import 'components/unidades';
-@import 'components/servicos';
-@import 'components/pontos-venda';
-@import 'components/online-usuario';
-@import 'components/widgets';
-@import 'components/encontre-seu-plano';
-@import 'components/page-builder';
-@import 'components/fale-conosco';
-@import 'components/imc';
-@import 'components/large-search';
-
-@import 'components/mobile';
-@import 'components/tiago-fix';
-@import 'components/acessibilidade';

@@ -9,35 +9,23 @@
 //
 // At the bottom of this section, we provide information about the spritesheet itself
 // $spritesheet: width height image $spritesheet-sprites;
-$sprite--fav-copy-name: 'fav copy';
-$sprite--fav-copy-x: 0px;
-$sprite--fav-copy-y: 0px;
-$sprite--fav-copy-offset-x: 0px;
-$sprite--fav-copy-offset-y: 0px;
-$sprite--fav-copy-width: 22px;
-$sprite--fav-copy-height: 20px;
-$sprite--fav-copy-total-width: 54px;
-$sprite--fav-copy-total-height: 20px;
-$sprite--fav-copy-image: 'sprite.png';
-$sprite--fav-copy: (0px, 0px, 0px, 0px, 22px, 20px, 54px, 20px, 'sprite.png', 'fav copy', );
-
 $sprite--fav-name: 'fav';
-$sprite--fav-x: 32px;
+$sprite--fav-x: 0px;
 $sprite--fav-y: 0px;
-$sprite--fav-offset-x: -32px;
+$sprite--fav-offset-x: 0px;
 $sprite--fav-offset-y: 0px;
 $sprite--fav-width: 22px;
 $sprite--fav-height: 20px;
-$sprite--fav-total-width: 54px;
+$sprite--fav-total-width: 22px;
 $sprite--fav-total-height: 20px;
 $sprite--fav-image: 'sprite.png';
-$sprite--fav: (32px, 0px, -32px, 0px, 22px, 20px, 54px, 20px, 'sprite.png', 'fav', );
+$sprite--fav: (0px, 0px, 0px, 0px, 22px, 20px, 22px, 20px, 'sprite.png', 'fav', );
 
-$sprite-spritesheet-width: 54px;
+$sprite-spritesheet-width: 22px;
 $sprite-spritesheet-height: 20px;
 $sprite-spritesheet-image: 'sprite.png';
-$sprite-spritesheet-sprites: ($sprite--fav-copy, $sprite--fav, );
-$sprite-spritesheet: (54px, 20px, 'sprite.png', $sprite-spritesheet-sprites, );
+$sprite-spritesheet-sprites: ($sprite--fav, );
+$sprite-spritesheet: (22px, 20px, 'sprite.png', $sprite-spritesheet-sprites, );
 
 // The provided mixins are intended to be used with the array-like variables
 //

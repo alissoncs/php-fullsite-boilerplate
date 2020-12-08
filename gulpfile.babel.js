@@ -39,7 +39,7 @@ const paths = {
     dest: 'public/build/',
   },
   sprite: {
-    src: 'assets/sprite/**/*.{jpg,jpeg,png,svg}',
+    src: 'assets/sprite/*.{png}',
     dest: 'public/build/',
   },
 };
@@ -70,7 +70,7 @@ export function connect() {
 
 
 export function sprites() {
-  var spriteData = gulp.src('./assets/sprite/**/*.png').pipe(spritesmith({
+  var spriteData = gulp.src(paths.sprite.src).pipe(spritesmith({
     imgName: 'sprite.png',
     // cssName: 'sprite.css'
     cssName: `_sprite.scss`,
@@ -84,7 +84,7 @@ export function sprites() {
 
   var img = spriteData.img
     .pipe(buffer())
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest(paths.sprite.dest))
     // .pipe(connect.stream())
     .pipe(gulpConnect.reload());
 

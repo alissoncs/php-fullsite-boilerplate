@@ -37,7 +37,7 @@
     "gulp.spritesmith": "^6.11.0",
     "gulplog": "^1.0.0",
     "imagemin-pngquant": "^7.0.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "merge": "^2.1.0",
     "merge-stream": "^2.0.0",
     "node-sass": "^4.12.0",

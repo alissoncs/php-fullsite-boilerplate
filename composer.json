@@ -7,7 +7,7 @@
     "slim/slim": "^3.0",
     "oscarotero/psr7-middlewares": "^3.21",
     "symfony/dotenv": "^4.3",
-    "illuminate/database": "^5.8",
+    "illuminate/database": "^6.20",
     "spatie/phpunit-watcher": "^1.11",
     "imagine/imagine": "^1.2",
     "guzzlehttp/guzzle": "^6.3",
